@@ -1,0 +1,116 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".CalculatorActivity">
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/app_name"
+        android:textIsSelectable="false"
+        android:textSize="@dimen/abc_action_bar_default_height_material"/>
+
+    <TextView
+        android:id="@+id/operation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appName"
+        android:layout_centerHorizontal="true"
+        android:text="@string/Operation"
+        android:textIsSelectable="false"
+        />
+
+    <View
+        android:id="@+id/fake_view"
+        android:layout_width="0dip"
+        android:layout_height="0dip"
+        android:layout_centerInParent="true"/>
+
+    <EditText
+        android:id="@+id/operand1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/fake_view"
+        android:layout_alignRight="@id/fake_view"
+        android:layout_below="@id/operation"
+        android:hint="@string/operand1"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/operand2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/operation"
+        android:layout_toEndOf="@id/fake_view"
+        android:layout_toRightOf="@id/fake_view"
+        android:hint="@string/operand2"
+        android:inputType="number"
+        />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/operand1"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:id="@+id/operator_sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/sum"
+            />
+
+        <RadioButton
+            android:id="@+id/operator_subtr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subtr"
+            />
+
+        <RadioButton
+            android:id="@+id/operator_div"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/div"
+            />
+
+
+        <RadioButton
+            android:id="@+id/operator_mult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mult"
+            />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/compute_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radio_group"
+        android:layout_centerHorizontal="true"
+        android:text="@string/go"/>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/operation"
+        android:layout_alignStart="@id/operation"
+        android:layout_below="@id/compute_button"
+        android:text="@string/result_format"/>
+
+    <Button
+        android:id="@+id/history_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/compute_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@id/compute_button"
+        android:text="@string/history"/>
+</RelativeLayout>
