@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/material_blue_grey_950">
+
+    <TextView
+        android:textColor="@color/accent_material_dark"
+        android:id="@+id/title_in_view_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="View book"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:textColor="@color/accent_material_dark"
+        android:id="@+id/book_view_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/code"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <TextView
+        android:textColor="@color/accent_material_dark"
+        android:id="@+id/book_view_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <TextView
+        android:textColor="@color/accent_material_dark"
+        android:id="@+id/book_view_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/author"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+
+    <TextView
+        android:textColor="@color/accent_material_dark"
+        android:id="@+id/book_view_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/language"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+
+    <TextView
+        android:textColor="@color/accent_material_dark"
+        android:id="@+id/book_view_pages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pages"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+
+    <TextView
+        android:textColor="@color/accent_material_dark"
+        android:id="@+id/book_view_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+
+    <TextView
+        android:textColor="@color/accent_material_dark"
+        android:id="@+id/book_view_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/link"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Back"
+        android:onClick="backButton"
+        />
+
+
+</LinearLayout>

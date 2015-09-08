@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:textColor="@color/accent_material_dark"
+        android:id="@+id/code_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/code"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:textColor="@color/accent_material_dark"
+        android:id="@+id/author_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/author"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:textColor="@color/accent_material_dark"
+        android:id="@+id/name_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+</LinearLayout>
