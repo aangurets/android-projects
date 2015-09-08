@@ -3,6 +3,7 @@ package com.example.bookstore;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -13,7 +14,7 @@ import com.example.bookstore.model.BookStorage;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class ViewBookActivity extends ActionBarActivity {
+public class ViewBookActivity extends AppCompatActivity {
 
     public static final String SELECTED_BOOK = "selected book position";
 
@@ -46,7 +47,7 @@ public class ViewBookActivity extends ActionBarActivity {
         setContentView(R.layout.activity_view_book);
 
         ButterKnife.inject(this);
-        setTitle(getString(R.string.view_book));
+        setTitle(getString(R.string.view_book_activity_name));
 
         mBookPosition = getIntent().getIntExtra(SELECTED_BOOK, 0);
         Book mBook = BookStorage.getInstance().getBook(mBookPosition);
@@ -76,10 +77,5 @@ public class ViewBookActivity extends ActionBarActivity {
         mPages.setText("Pages: " + book.getPages());
         mPrice.setText("Price: " + book.getPrice());
         mLink.setText("Link: " + book.getLink());
-    }
-
-    public void backButton(View view) {
-        Intent intent = new Intent(ViewBookActivity.this, BookstoreActivity.class);
-        startActivity(intent);
     }
 }

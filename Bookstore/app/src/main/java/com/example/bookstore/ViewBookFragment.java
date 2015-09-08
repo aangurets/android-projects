@@ -9,9 +9,6 @@ import android.view.ViewGroup;
 
 public class ViewBookFragment extends Fragment {
 
-    public ViewBookFragment() {
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -5,12 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.example.bookstore.adapter.BookAdapter;
@@ -22,32 +22,37 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URL;
 import java.util.List;
 
-public class BookstoreActivity extends ActionBarActivity
+public class BookstoreActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<Book>> {
 
-    public static final String SELECTED_BOOK = "selected book position";
-
     private ListView mBookListView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
- //       setContentView(R.layout.fragment_bookstore);
+        setContentView(R.layout.activity_bookstore);
 
-        mBookListView = (ListView) findViewById(android.R.id.list);
-        mBookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
-                intent.putExtra(SELECTED_BOOK, position);
-                startActivity(intent);
-            }
-        });
+        BookstoreFragment mBookstoreFragment = (BookstoreFragment)
+                getFragmentManager().findFragmentById(R.id.bookstore_fragment_id_in_activity);
+        View mFragment = mBookstoreFragment.getView();
 
+        try {
+            mBookListView = (ListView) mFragment;
+            mBookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
+                    intent.putExtra(Constants.SELECTED_BOOK, position);
+                    startActivity(intent);
+                }
+            });
+        } catch (NullPointerException e) {
+            Log.d(Constants.LOG_TAG, "Error = " + e);
+        }
         getLoaderManager().initLoader(1, null, this);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -81,7 +86,7 @@ public class BookstoreActivity extends ActionBarActivity
             ObjectMapper mapper = new ObjectMapper();
             try {
                 java.net.URL mResource =
-                        new URL("http://bride.by/books.json");
+                        new URL(Constants.URL);
                 Book[] books = mapper.readValue(mResource, Book[].class);
                 for (Book book : books) {
                     BookStorage.getInstance().addBook(book);
