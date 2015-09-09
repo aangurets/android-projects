@@ -12,9 +12,8 @@ public class ViewBookFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_view_book, container, false);
-
-        return view;
+        View mView = inflater.inflate(R.layout.fragment_view_book, container, false);
+        return mView;
     }
 
 
