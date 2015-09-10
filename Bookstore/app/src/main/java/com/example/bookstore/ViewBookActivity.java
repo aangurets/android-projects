@@ -1,18 +1,15 @@
 package com.example.bookstore;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import com.example.bookstore.model.Book;
 import com.example.bookstore.model.BookStorage;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class ViewBookActivity extends AppCompatActivity {
 
@@ -20,25 +17,25 @@ public class ViewBookActivity extends AppCompatActivity {
 
     private int mBookPosition;
 
-    @InjectView(R.id.book_view_code)
+    @Bind(R.id.book_view_code)
     TextView mCode;
 
-    @InjectView(R.id.book_view_name)
+    @Bind(R.id.book_view_name)
     TextView mName;
 
-    @InjectView(R.id.book_view_author)
+    @Bind(R.id.book_view_author)
     TextView mAuthor;
 
-    @InjectView(R.id.book_view_language)
+    @Bind(R.id.book_view_language)
     TextView mLanguage;
 
-    @InjectView(R.id.book_view_pages)
+    @Bind(R.id.book_view_pages)
     TextView mPages;
 
-    @InjectView(R.id.book_view_price)
+    @Bind(R.id.book_view_price)
     TextView mPrice;
 
-    @InjectView(R.id.book_view_link)
+    @Bind(R.id.book_view_link)
     TextView mLink;
 
     @Override
@@ -46,7 +43,7 @@ public class ViewBookActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_book);
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         setTitle(getString(R.string.view_book_activity_name));
 
         mBookPosition = getIntent().getIntExtra(SELECTED_BOOK, 0);
