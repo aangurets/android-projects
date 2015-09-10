@@ -8,8 +8,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import by.aangurets.contacts.model.Contact;
 
 public class EditContactActivity extends Activity {
@@ -19,17 +19,17 @@ public class EditContactActivity extends Activity {
     private Contact mContact;
     private int mContactPosition;
 
-    @InjectView(R.id.nameEditText)
+    @Bind(R.id.nameEditText)
     EditText mName;
-    @InjectView(R.id.surnameEditText)
+    @Bind(R.id.surnameEditText)
     EditText mSurname;
-    @InjectView(R.id.phoneEditText)
+    @Bind(R.id.phoneEditText)
     EditText mPhone;
-    @InjectView(R.id.emailAddressEditText)
+    @Bind(R.id.emailAddressEditText)
     EditText mEmail;
-    @InjectView(R.id.dateEditText)
+    @Bind(R.id.dateEditText)
     EditText mDate;
-    @InjectView(R.id.occupationEditText)
+    @Bind(R.id.occupationEditText)
     EditText mOccupation;
 
     @Override
@@ -37,7 +37,7 @@ public class EditContactActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_contact_activity);
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         setTitle(R.string.edit_contact);
         mContactPosition = getIntent().getIntExtra(ID_SELECTED_CONTACT, 0);

@@ -8,8 +8,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import by.aangurets.contacts.model.Contact;
 
 public class ViewContactActivity extends Activity {
@@ -18,17 +18,17 @@ public class ViewContactActivity extends Activity {
 
     private int mContactPosition;
 
-    @InjectView(R.id.nameTextView)
+    @Bind(R.id.nameTextView)
     TextView mName;
-    @InjectView(R.id.surnameTextView)
+    @Bind(R.id.surnameTextView)
     TextView mSurname;
-    @InjectView(R.id.phoneTextView)
+    @Bind(R.id.phoneTextView)
     TextView mPhone;
-    @InjectView(R.id.emailAddressTextView)
+    @Bind(R.id.emailAddressTextView)
     TextView mEmail;
-    @InjectView(R.id.dateTextView)
+    @Bind(R.id.dateTextView)
     TextView mDate;
-    @InjectView(R.id.occupationTextView)
+    @Bind(R.id.occupationTextView)
     TextView mOccupation;
 
     @Override
@@ -36,7 +36,7 @@ public class ViewContactActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_contact_activity);
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         setTitle(R.string.review_contact);
 
