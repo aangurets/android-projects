@@ -13,28 +13,28 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import by.minsk.angurets.calculator.Constants.Constants;
 
 public class CalculatorActivity extends AppCompatActivity {
 
-    @InjectView(R.id.operand1)
+    @Bind(R.id.operand1)
     EditText mOperand1EditText;
-    @InjectView(R.id.operand2)
+    @Bind(R.id.operand2)
     EditText mOperand2EditText;
-    @InjectView(R.id.result)
+    @Bind(R.id.result)
     TextView mResult;
-    @InjectView(R.id.radio_group)
+    @Bind(R.id.radio_group)
     RadioGroup mRadioGroup;
-    @InjectView(R.id.history_button)
+    @Bind(R.id.history_button)
     Button mHistoryButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator_activity);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         mHistoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
