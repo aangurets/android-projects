@@ -2,7 +2,6 @@ package by.minsk.angurets.webbrowser;
 
 import android.content.*;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
@@ -11,28 +10,25 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import by.minsk.angurets.webbrowser.model.HistoryItem;
 
 public class BrowserActivity extends AppCompatActivity {
 
-    public static final String PREFIX = "https://";
-    public static final String URL = "URL";
-
     private HistoryStorage mHistoryStorage = HistoryStorage.getInstance();
 
-    @InjectView(R.id.url)
+    @Bind(R.id.url)
     EditText mUrl;
-    @InjectView(R.id.open_button)
+    @Bind(R.id.open_button)
     ImageButton mOpenButton;
-    @InjectView(R.id.back_button)
+    @Bind(R.id.back_button)
     ImageButton mBackButton;
-    @InjectView(R.id.forward_button)
+    @Bind(R.id.forward_button)
     ImageButton mForwardButton;
-    @InjectView(R.id.history_button)
+    @Bind(R.id.history_button)
     ImageButton mHistoryButton;
-    @InjectView(R.id.webView)
+    @Bind(R.id.webView)
     WebView mWebView;
 
     private String mTempURL;
@@ -43,7 +39,7 @@ public class BrowserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browser_activity);
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         repairingUrl(savedInstanceState);
 
         mBackButton.setEnabled(false);
@@ -105,18 +101,18 @@ public class BrowserActivity extends AppCompatActivity {
     private void openButtonAction() {
         mHistoryStorage.addToHistoryItems(new HistoryItem(mUrl.getText().toString()));
         mBackButton.setEnabled(true);
-        if (mUrl.getText().toString().startsWith(PREFIX)) {
+        if (mUrl.getText().toString().startsWith(Constants.PREFIX)) {
             mWebView.loadUrl(mUrl.getText().toString());
         } else {
-            mWebView.loadUrl(PREFIX + mUrl.getText().toString());
+            mWebView.loadUrl(Constants.PREFIX + mUrl.getText().toString());
         }
     }
 
     private void repairingUrl(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-            if (preferences.contains(URL)) {
-                String url = preferences.getString(URL, null);
+            if (preferences.contains(Constants.URL)) {
+                String url = preferences.getString(Constants.URL, null);
                 mWebView.loadUrl(url);
             }
         }
@@ -128,7 +124,7 @@ public class BrowserActivity extends AppCompatActivity {
         if (isFinishing()) {
             SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
-            editor.putString(URL, mWebView.getUrl());
+            editor.putString(Constants.URL, mWebView.getUrl());
             editor.apply();
         }
         super.onStop();
@@ -137,12 +133,12 @@ public class BrowserActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state);
         mTempURL = mWebView.getUrl();
-        state.putString(URL, mTempURL);
+        state.putString(Constants.URL, mTempURL);
     }
 
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        mTempURL = savedInstanceState.getString(URL);
+        mTempURL = savedInstanceState.getString(Constants.URL);
         mWebView.loadUrl(mTempURL);
         mUrl.setText(mTempURL);
     }
