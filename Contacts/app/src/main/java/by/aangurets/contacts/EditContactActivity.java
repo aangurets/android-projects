@@ -10,11 +10,10 @@ import android.widget.EditText;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import by.aangurets.contacts.model.Constants;
 import by.aangurets.contacts.model.Contact;
 
 public class EditContactActivity extends Activity {
-
-    static final String ID_SELECTED_CONTACT = "selected contact";
 
     private Contact mContact;
     private int mContactPosition;
@@ -40,7 +39,7 @@ public class EditContactActivity extends Activity {
         ButterKnife.bind(this);
 
         setTitle(R.string.edit_contact);
-        mContactPosition = getIntent().getIntExtra(ID_SELECTED_CONTACT, 0);
+        mContactPosition = getIntent().getIntExtra(Constants.ID_SELECTED_CONTACT, 0);
         mContact = ContactsStorage.getAll().get(mContactPosition);
         fillingFields(mContact);
     }

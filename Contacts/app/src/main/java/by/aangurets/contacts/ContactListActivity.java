@@ -19,11 +19,11 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import by.aangurets.contacts.model.Constants;
 import by.aangurets.contacts.model.Contact;
 
 public class ContactListActivity extends Activity implements LoaderManager.LoaderCallbacks<List<Contact>> {
 
-    public static final String POSITION_OF_THE_SELECTED_CONTACT = "selected contact";
     public static final int LOADER_ID = 1;
 
     private ListView mContactList;
@@ -43,7 +43,7 @@ public class ContactListActivity extends Activity implements LoaderManager.Loade
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ContactListActivity.this, ViewContactActivity.class);
-                intent.putExtra(POSITION_OF_THE_SELECTED_CONTACT, position);
+                intent.putExtra(Constants.POSITION_OF_THE_SELECTED_CONTACT, position);
                 startActivity(intent);
             }
         });

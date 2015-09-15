@@ -9,11 +9,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import by.aangurets.contacts.model.Constants;
 import by.aangurets.contacts.model.Contact;
 
 public class ContactAdapter extends ArrayAdapter<Contact> {
-    static final String ID = "ID # ";
-    static final String PHONE = "Phone number: ";
 
     public ContactAdapter(Context context, List<Contact> contacts) {
         super(context, android.R.layout.simple_list_item_1, android.R.id.text1, contacts);
@@ -40,9 +39,9 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         }
         TextView mNameTextView = (TextView) mView.findViewById(R.id.name_contact_list);
         TextView mPhoneTextView = (TextView) mView.findViewById(R.id.phone_contact_list);
-        mNameTextView.setText(ID + getItem(position).getId() + " " + getItem(position).getName()
+        mNameTextView.setText(Constants.ID + getItem(position).getId() + " " + getItem(position).getName()
                 + " " + getItem(position).getSurname());
-        mPhoneTextView.setText(PHONE + getItem(position).getPhone());
+        mPhoneTextView.setText(Constants.PHONE + getItem(position).getPhone());
         return mView;
     }
 }

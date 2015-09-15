@@ -1,8 +1,7 @@
 package by.minsk.angurets.calculator;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.widget.ArrayAdapter;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import java.util.List;
@@ -10,9 +9,10 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class HistoryActivity extends ActionBarActivity {
+public class HistoryActivity extends AppCompatActivity {
 
     private List<HistoryItem> historyItems = HistoryItemsStorage.getAll();
+
     @InjectView(R.id.listView)
     ListView mListView;
 

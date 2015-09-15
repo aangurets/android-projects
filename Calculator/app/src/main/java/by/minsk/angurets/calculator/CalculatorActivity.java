@@ -3,8 +3,8 @@ package by.minsk.angurets.calculator;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -15,10 +15,9 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import by.minsk.angurets.calculator.Constants.Constants;
 
-public class CalculatorActivity extends ActionBarActivity {
-
-    final static String RESULT = "setResult";
+public class CalculatorActivity extends AppCompatActivity {
 
     @InjectView(R.id.operand1)
     EditText mOperand1EditText;
@@ -93,13 +92,13 @@ public class CalculatorActivity extends ActionBarActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putCharSequence(RESULT, mResult.getText());
+        outState.putCharSequence(Constants.RESULT, mResult.getText());
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        mResult.setText(savedInstanceState.getCharSequence(RESULT));
+        mResult.setText(savedInstanceState.getCharSequence(Constants.RESULT));
     }
 
     private class CalculatorAsyncTask extends AsyncTask<Compute, Float, Double> {

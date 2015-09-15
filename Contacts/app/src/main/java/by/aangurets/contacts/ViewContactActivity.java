@@ -10,11 +10,10 @@ import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import by.aangurets.contacts.model.Constants;
 import by.aangurets.contacts.model.Contact;
 
 public class ViewContactActivity extends Activity {
-
-    static final String ID_SELECTED_CONTACT = "selected contact";
 
     private int mContactPosition;
 
@@ -40,7 +39,7 @@ public class ViewContactActivity extends Activity {
 
         setTitle(R.string.review_contact);
 
-        mContactPosition = getIntent().getIntExtra(ID_SELECTED_CONTACT, 0);
+        mContactPosition = getIntent().getIntExtra(Constants.ID_SELECTED_CONTACT, 0);
         Contact contact = ContactsStorage.getAll().get(mContactPosition);
         fillingFields(contact);
     }
@@ -66,7 +65,7 @@ public class ViewContactActivity extends Activity {
         switch (item.getItemId()) {
             case R.id.edit_contact:
                 Intent intent = new Intent(ViewContactActivity.this, EditContactActivity.class);
-                intent.putExtra(ID_SELECTED_CONTACT, mContactPosition);
+                intent.putExtra(Constants.ID_SELECTED_CONTACT, mContactPosition);
                 startActivity(intent);
                 return true;
         }

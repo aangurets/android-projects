@@ -6,13 +6,13 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
-public class OperatorNotSelectFragment extends DialogFragment {
+import by.minsk.angurets.calculator.Constants.Constants;
 
-    private static final String ARG_MESSAGE = "message";
+public class OperatorNotSelectFragment extends DialogFragment {
 
     public static OperatorNotSelectFragment newInstance(CharSequence message) {
         Bundle args = new Bundle(1);
-        args.putCharSequence(ARG_MESSAGE, message);
+        args.putCharSequence(Constants.ARG_MESSAGE, message);
 
         OperatorNotSelectFragment fragment = new OperatorNotSelectFragment();
         fragment.setArguments(args);
@@ -30,7 +30,7 @@ public class OperatorNotSelectFragment extends DialogFragment {
                 }
         );
         builder.setTitle(R.string.error_operator_not_select)
-                .setMessage(getArguments().getCharSequence(ARG_MESSAGE));
+                .setMessage(getArguments().getCharSequence(Constants.ARG_MESSAGE));
         return builder.create();
     }
 }
