@@ -7,61 +7,42 @@
 
     <TextView
         android:id="@+id/title_in_view_book"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/accent_material_dark" />
+        style="@style/ViewBook.Title.Large."
+        android:text="@string/view_book" />
 
     <TextView
         android:id="@+id/book_view_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="@color/accent_material_dark" />
+        style="@style/ViewBook.Item.Medium"
+        android:text="@string/code" />
 
     <TextView
         android:id="@+id/book_view_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="@color/accent_material_dark" />
+        style="@style/ViewBook.Item.Medium"
+        android:text="@string/name" />
 
     <TextView
         android:id="@+id/book_view_author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="@color/accent_material_dark" />
+        style="@style/ViewBook.Item.Medium"
+        android:text="@string/author" />
 
     <TextView
         android:id="@+id/book_view_language"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="@color/accent_material_dark" />
+        style="@style/ViewBook.Item.Medium"
+        android:text="@string/language" />
 
     <TextView
         android:id="@+id/book_view_pages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="@color/accent_material_dark" />
+        style="@style/ViewBook.Item.Medium"
+        android:text="@string/pages" />
 
     <TextView
         android:id="@+id/book_view_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="@color/accent_material_dark" />
+        style="@style/ViewBook.Item.Medium"
+        android:text="@string/price" />
 
     <TextView
         android:id="@+id/book_view_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="@color/accent_material_dark" />
+        style="@style/ViewBook.Item.Medium"
+        android:text="@string/link" />
 
 </LinearLayout>

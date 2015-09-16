@@ -7,13 +7,8 @@
 
     <TextView
         android:id="@+id/title_in_view_book"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
         android:text="@string/view_book"
-        android:textColor="@color/accent_material_dark" />
+        style="@style/ViewBook.Title.Large." />
 
     <TextView
         android:id="@+id/book_view_code"
@@ -24,6 +19,7 @@
         android:id="@+id/book_view_name"
         style="@style/ViewBook.Item.Medium"
         android:text="@string/name" />
+
 
     <TextView
         android:id="@+id/book_view_author"
