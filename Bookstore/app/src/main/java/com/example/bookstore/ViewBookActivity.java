@@ -13,8 +13,6 @@ import butterknife.ButterKnife;
 
 public class ViewBookActivity extends AppCompatActivity {
 
-    public static final String SELECTED_BOOK = "selected book position";
-
     private int mBookPosition;
 
     @Bind(R.id.book_view_code)
@@ -46,7 +44,7 @@ public class ViewBookActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setTitle(getString(R.string.view_book_activity_name));
 
-        mBookPosition = getIntent().getIntExtra(SELECTED_BOOK, 0);
+        mBookPosition = getIntent().getIntExtra(Constants.SELECTED_BOOK, 0);
         Book mBook = BookStorage.getInstance().getBook(mBookPosition);
         fillingFields(mBook);
 

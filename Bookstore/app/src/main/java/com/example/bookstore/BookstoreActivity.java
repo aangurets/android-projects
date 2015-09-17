@@ -6,15 +6,12 @@ import android.content.Intent;
 import android.content.Loader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.telephony.TelephonyManager;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.bookstore.adapter.BookAdapter;
 import com.example.bookstore.loader.AbstractLoader;
@@ -49,18 +46,12 @@ public class BookstoreActivity extends AppCompatActivity
                     String mString = BookstoreActivity.this.getString(R.string.screen_type);
 
                     if (mString.equals("tablet")) {
-                        Toast.makeText(BookstoreActivity.this,
-                                "This is a Tablet",
-                                Toast.LENGTH_LONG).show();
-                    } else if (mString.equals("phone")) {
-                        Toast.makeText(BookstoreActivity.this,
-                                "This is a Phone",
-                                Toast.LENGTH_LONG).show();
-                    }
 
-                    Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
-                    intent.putExtra(Constants.SELECTED_BOOK, position);
-                    startActivity(intent);
+                    } else if (mString.equals("phone")) {
+                        Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
+                        intent.putExtra(Constants.SELECTED_BOOK, position);
+                        startActivity(intent);
+                    }
                 }
             });
         } catch (NullPointerException e) {
