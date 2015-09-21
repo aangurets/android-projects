@@ -16,8 +16,6 @@ import by.minsk.angurets.webbrowser.model.HistoryItem;
 public class HistoryActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<HistoryItem>> {
 
-    public static final int LOADER_ID = 0;
-
     private ListView mHistoryList;
 
     @Override
@@ -25,7 +23,7 @@ public class HistoryActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_activity);
 
-        getLoaderManager().initLoader(LOADER_ID, null, this);
+        getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
         mHistoryList = (ListView) findViewById(R.id.history_list);
 
         mHistoryList.setAdapter(new HistoryAdapter(this, new ArrayList<HistoryItem>()));

@@ -64,14 +64,19 @@ public class CalculatorActivity extends AppCompatActivity {
             case View.NO_ID:
                 operatorNotSelect();
                 return null;
+
             case R.id.operator_sum:
                 return Calculation.SUM;
+
             case R.id.operator_subtr:
                 return Calculation.SUBTRACTION;
+
             case R.id.operator_div:
                 return Calculation.DIVISION;
+
             case R.id.operator_mult:
                 return Calculation.MULTIPLICATION;
+
             default:
                 operatorNotSelect();
                 return null;
