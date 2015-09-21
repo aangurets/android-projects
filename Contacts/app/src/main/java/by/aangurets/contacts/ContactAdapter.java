@@ -37,11 +37,17 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         } else {
             mView = convertView;
         }
+
         TextView mNameTextView = (TextView) mView.findViewById(R.id.name_contact_list);
         TextView mPhoneTextView = (TextView) mView.findViewById(R.id.phone_contact_list);
-        mNameTextView.setText(Constants.ID + getItem(position).getId() + " " + getItem(position).getName()
-                + " " + getItem(position).getSurname());
-        mPhoneTextView.setText(Constants.PHONE + getItem(position).getPhone());
+
+        String mNameText = Constants.ID + getItem(position).getId() + " " + getItem(position).getName() +
+                " " + getItem(position).getSurname();
+        String mPhoneText = Constants.PHONE + getItem(position).gЬetPhone();
+
+        mNameTextView.setText(mNameText);
+        mPhoneTextView.setText(mPhoneText);
+
         return mView;
     }
 }

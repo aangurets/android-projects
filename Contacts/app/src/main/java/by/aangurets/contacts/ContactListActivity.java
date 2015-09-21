@@ -52,14 +52,17 @@ public class ContactListActivity extends Activity implements LoaderManager.Loade
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+
             case R.id.add_contact:
                 ContactsStorage.addContact(GenerationOfContact.generateContact());
                 updateList();
                 return true;
+
             case R.id.delete_contact:
                 confirmRemoval();
                 updateList();
                 return true;
+
         }
         return super.onOptionsItemSelected(item);
     }
