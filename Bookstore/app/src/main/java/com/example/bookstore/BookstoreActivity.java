@@ -44,12 +44,19 @@ public class BookstoreActivity extends AppCompatActivity
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                     String mString = BookstoreActivity.this.getString(R.string.screen_type);
+                    Book mBook = BookStorage.getInstance().getBook(position);
 
                     if (mString.equals("tablet")) {
 
                     } else if (mString.equals("phone")) {
                         Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
-                        intent.putExtra(Constants.SELECTED_BOOK, position);
+                        intent.putExtra(Constants.CODE, mBook.getCode());
+                        intent.putExtra(Constants.NAME, mBook.getName());
+                        intent.putExtra(Constants.AUTHOR, mBook.getAuthor());
+                        intent.putExtra(Constants.LANGUAGE, mBook.getLanguage());
+                        intent.putExtra(Constants.PAGES, mBook.getPages());
+                        intent.putExtra(Constants.PRICE, mBook.getPrice());
+                        intent.putExtra(Constants.LINK, mBook.getLink());
                         startActivity(intent);
                     }
                 }
@@ -59,7 +66,6 @@ public class BookstoreActivity extends AppCompatActivity
         }
         getLoaderManager().initLoader(1, null, this);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -5,15 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.bookstore.model.Book;
-import com.example.bookstore.model.BookStorage;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ViewBookActivity extends AppCompatActivity {
-
-    private int mBookPosition;
 
     @Bind(R.id.book_view_code)
     TextView mCode;
@@ -44,9 +39,7 @@ public class ViewBookActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setTitle(getString(R.string.view_book_activity_name));
 
-        mBookPosition = getIntent().getIntExtra(Constants.SELECTED_BOOK, 0);
-        Book mBook = BookStorage.getInstance().getBook(mBookPosition);
-        fillingFields(mBook);
+        fillingFields();
 
     }
 
@@ -64,13 +57,13 @@ public class ViewBookActivity extends AppCompatActivity {
         }
     }
 
-    public void fillingFields(Book book) {
-        mCode.setText("Code: " + book.getCode());
-        mName.setText("Name: " + book.getName());
-        mAuthor.setText("Author: " + book.getAuthor());
-        mLanguage.setText("Language: " + book.getLanguage());
-        mPages.setText("Pages: " + book.getPages());
-        mPrice.setText("Price: " + book.getPrice());
-        mLink.setText("Link: " + book.getLink());
+    public void fillingFields() {
+        mCode.setText(getIntent().getStringExtra(Constants.CODE));
+        mName.setText(getIntent().getStringExtra(Constants.NAME));
+        mAuthor.setText(getIntent().getStringExtra(Constants.AUTHOR));
+        mLanguage.setText(getIntent().getStringExtra(Constants.LANGUAGE));
+        mPages.setText(getIntent().getStringExtra(Constants.PAGES));
+        mPrice.setText(getIntent().getStringExtra(Constants.PRICE));
+        mLink.setText(getIntent().getStringExtra(Constants.LINK));
     }
 }
