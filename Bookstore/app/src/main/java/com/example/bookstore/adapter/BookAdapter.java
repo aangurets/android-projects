@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.bookstore.Constants;
 import com.example.bookstore.R;
 import com.example.bookstore.model.Book;
 import com.example.bookstore.model.BookStorage;
@@ -14,10 +15,6 @@ import com.example.bookstore.model.BookStorage;
 import java.util.List;
 
 public class BookAdapter extends ArrayAdapter<Book> {
-
-    static final String CODE_CONST = "Code: ";
-    static final String AUTH_CONST = "Author: ";
-    static final String NAME_CONST = "Name: ";
 
     public BookAdapter(Context context, List<Book> books) {
         super(context, android.R.layout.simple_list_item_1, android.R.id.text1, books);
@@ -36,8 +33,10 @@ public class BookAdapter extends ArrayAdapter<Book> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         View mView = convertView;
         ViewHolder holder;
+
         if (mView == null) {
             mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.book, parent, false);
             holder = new ViewHolder();
@@ -48,11 +47,15 @@ public class BookAdapter extends ArrayAdapter<Book> {
         } else {
             holder = (ViewHolder) mView.getTag();
         }
-        holder.mCodeTextVew.setText(CODE_CONST + getItem(position).getCode());
-        holder.mAuthorTextView.setText(AUTH_CONST + getItem(position).getAuthor());
-        holder.mNameTextVew.setText(NAME_CONST + getItem(position).getName());
-        return mView;
+        String mCode = Constants.CODE + getItem(position).getCode();
+        String mAuthor = Constants.AUTHOR + getItem(position).getCode();
+        String mName = Constants.NAME + getItem(position).getCode();
 
+        holder.mCodeTextVew.setText(mCode);
+        holder.mAuthorTextView.setText(mAuthor);
+        holder.mNameTextVew.setText(mName);
+
+        return mView;
     }
 
     static class ViewHolder {

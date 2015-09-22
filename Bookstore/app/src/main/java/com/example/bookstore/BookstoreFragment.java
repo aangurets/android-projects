@@ -15,8 +15,7 @@ public class BookstoreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View mRootView = inflater.inflate(R.layout.fragment_bookstore, container, false);
-        return mRootView;
+        return inflater.inflate(R.layout.fragment_bookstore, container, false);
     }
 
 
