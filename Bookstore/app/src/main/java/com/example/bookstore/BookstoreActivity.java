@@ -1,5 +1,7 @@
 package com.example.bookstore;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +28,7 @@ public class BookstoreActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<Book>> {
 
     private ListView mBookListView;
+    FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,9 @@ public class BookstoreActivity extends AppCompatActivity
 
         BookstoreFragment mBookstoreFragment = (BookstoreFragment)
                 getFragmentManager().findFragmentById(R.id.bookstore_fragment_id_in_activity);
+        final ViewBookFragment viewBookFragment =
+                (ViewBookFragment) getFragmentManager()
+                        .findFragmentById(R.id.view_book_fragment_id_in_activity);
         View mFragment = mBookstoreFragment.getView();
 
         try {
@@ -47,7 +53,8 @@ public class BookstoreActivity extends AppCompatActivity
                     Book mBook = BookStorage.getInstance().getBook(position);
 
                     if (mString.equals("tablet")) {
-
+                        fragmentTransaction.add(R.id.view_book_fragment_id_in_activity, viewBookFragment);
+                        fragmentTransaction.commit();
                     } else if (mString.equals("phone")) {
                         Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
                         intent.putExtra(Constants.CODE, mBook.getCode());
