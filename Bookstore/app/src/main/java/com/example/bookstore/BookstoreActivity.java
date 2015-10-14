@@ -51,8 +51,9 @@ public class BookstoreActivity extends AppCompatActivity
                     Book mBook = BookStorage.getInstance().getBook(position);
 
                     if (mString.equals("tablet")) {
-                  /*      fragmentTransaction.add(R.id.view_book_fragment_id_in_activity, viewBookFragment);
-                        fragmentTransaction.commit();*/
+                        Bundle bundle = new Bundle();
+                        bundle.putInt(Constants.SELECTED_BOOK, position);
+                        viewBookFragment.setArguments(bundle);
                     } else if (mString.equals("phone")) {
                         Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
                         intent.putExtra(Constants.CODE, mBook.getCode());
