@@ -1,5 +1,10 @@
 package com.example.bookstore;
 
+<<<<<<< HEAD
+=======
+import android.app.FragmentManager;
+>>>>>>> 17b98398ab9dc650cae3f6e5e386e384336cba95
+import android.app.FragmentTransaction;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.bookstore.adapter.BookAdapter;
 import com.example.bookstore.loader.AbstractLoader;
@@ -22,19 +28,48 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URL;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class BookstoreActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<Book>> {
 
+    @Bind(R.id.book_view_code)
+    TextView mCode;
+
+    @Bind(R.id.book_view_name)
+    TextView mName;
+
+    @Bind(R.id.book_view_author)
+    TextView mAuthor;
+
+    @Bind(R.id.book_view_language)
+    TextView mLanguage;
+
+    @Bind(R.id.book_view_pages)
+    TextView mPages;
+
+    @Bind(R.id.book_view_price)
+    TextView mPrice;
+
+    @Bind(R.id.book_view_link)
+    TextView mLink;
+
     private ListView mBookListView;
+    FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_bookstore);
+        ButterKnife.bind(this);
 
         BookstoreFragment mBookstoreFragment = (BookstoreFragment)
                 getFragmentManager().findFragmentById(R.id.bookstore_fragment_id_in_activity);
+        final ViewBookFragment viewBookFragment =
+                (ViewBookFragment) getFragmentManager()
+                        .findFragmentById(R.id.view_book_fragment_id_in_activity);
         View mFragment = mBookstoreFragment.getView();
 
         try {
@@ -47,18 +82,31 @@ public class BookstoreActivity extends AppCompatActivity
                     Book mBook = BookStorage.getInstance().getBook(position);
 
                     if (mString.equals("tablet")) {
+                        fragmentTransaction.add(R.id.view_book_fragment_id_in_activity, viewBookFragment);
+<<<<<<< HEAD
 
+
+=======
+>>>>>>> 17b98398ab9dc650cae3f6e5e386e384336cba95
+                        fragmentTransaction.commit();
                     } else if (mString.equals("phone")) {
                         Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
-                        intent.putExtra(Constants.CODE, mBook.getCode());
-                        intent.putExtra(Constants.NAME, mBook.getName());
-                        intent.putExtra(Constants.AUTHOR, mBook.getAuthor());
-                        intent.putExtra(Constants.LANGUAGE, mBook.getLanguage());
-                        intent.putExtra(Constants.PAGES, mBook.getPages());
-                        intent.putExtra(Constants.PRICE, mBook.getPrice());
-                        intent.putExtra(Constants.LINK, mBook.getLink());
+//                        intent.putExtra(Constants.CODE, mBook.getCode());
+//                        intent.putExtra(Constants.NAME, mBook.getName());
+//                        intent.putExtra(Constants.AUTHOR, mBook.getAuthor());
+//                        intent.putExtra(Constants.LANGUAGE, mBook.getLanguage());
+//                        intent.putExtra(Constants.PAGES, mBook.getPages());
+//                        intent.putExtra(Constants.PRICE, mBook.getPrice());
+//                        intent.putExtra(Constants.LINK, mBook.getLink());
                         startActivity(intent);
                     }
+                    mCode.setText(mBook.getCode());
+                    mName.setText(mBook.getName());
+                    mAuthor.setText(mBook.getAuthor());
+                    mLanguage.setText(mBook.getLanguage());
+                    mPages.setText(mBook.getPages());
+                    mPrice.setText(mBook.getPrice());
+                    mLink.setText(mBook.getLink());
                 }
             });
         } catch (NullPointerException e) {
