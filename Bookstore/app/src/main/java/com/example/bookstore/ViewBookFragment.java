@@ -1,12 +1,17 @@
 package com.example.bookstore;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class ViewBookFragment extends Fragment {
 
@@ -22,6 +27,14 @@ public class ViewBookFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Context mContext;
+
+        TextView mCode = (TextView) getActivity().findViewById(R.id.book_view_code);
+
+        TextView mName = (TextView)getActivity().findViewById(R.id.book_view_name);
+
+        mCode.setText(Integer.toString(99999999));
+        mName.setText("Yaaaahhhhooooooooo");
 
         mBundle = this.getArguments();
         if (mBundle != null) {

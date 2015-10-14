@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <fragment
-        android:id="@+id/view_book_fragment_id_in_activity"
+        android:id="@+id/view_book_fragment_id_in_activity2"
         android:name="com.example.bookstore.ViewBookFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
