@@ -39,7 +39,7 @@ public class ViewBookActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setTitle(getString(R.string.view_book_activity_name));
 
-        fillingFields();
+   //     fillingFields();
 
     }
 
