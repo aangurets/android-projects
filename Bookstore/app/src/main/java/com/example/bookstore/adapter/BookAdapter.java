@@ -48,8 +48,8 @@ public class BookAdapter extends ArrayAdapter<Book> {
             holder = (ViewHolder) mView.getTag();
         }
         String mCode = Constants.CODE + getItem(position).getCode();
-        String mAuthor = Constants.AUTHOR + getItem(position).getCode();
-        String mName = Constants.NAME + getItem(position).getCode();
+        String mAuthor = Constants.AUTHOR + getItem(position).getAuthor();
+        String mName = Constants.NAME + getItem(position).getName();
 
         holder.mCodeTextVew.setText(mCode);
         holder.mAuthorTextView.setText(mAuthor);
