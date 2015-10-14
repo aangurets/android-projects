@@ -1,5 +1,9 @@
 package com.example.bookstore;
 
+<<<<<<< HEAD
+=======
+import android.app.FragmentManager;
+>>>>>>> 17b98398ab9dc650cae3f6e5e386e384336cba95
 import android.app.FragmentTransaction;
 import android.app.LoaderManager;
 import android.content.Context;
@@ -79,8 +83,11 @@ public class BookstoreActivity extends AppCompatActivity
 
                     if (mString.equals("tablet")) {
                         fragmentTransaction.add(R.id.view_book_fragment_id_in_activity, viewBookFragment);
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 17b98398ab9dc650cae3f6e5e386e384336cba95
                         fragmentTransaction.commit();
                     } else if (mString.equals("phone")) {
                         Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
