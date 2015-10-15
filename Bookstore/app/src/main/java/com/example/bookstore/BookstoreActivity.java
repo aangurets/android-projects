@@ -75,20 +75,12 @@ public class BookstoreActivity extends AppCompatActivity
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                     String mString = BookstoreActivity.this.getString(R.string.screen_type);
-                    Book mBook = BookStorage.getInstance().getBook(position);
 
                     if (mString.equals("tablet")) {
-                        mCode.setText(mBook.getCode());
-                        mName.setText(mBook.getName());
-                        mAuthor.setText(mBook.getAuthor());
-                        mLanguage.setText(mBook.getLanguage());
-                        mPages.setText(mBook.getPages());
-                        mPrice.setText(mBook.getPrice());
-                        mLink.setText(mBook.getLink());
-
+                        fillingFieldsInViewBookFragment(BookStorage.getInstance().getBook(position));
                     } else if (mString.equals("phone")) {
-
                         Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
+                        intent.putExtra(Constants.SELECTED_BOOK, position);
                         startActivity(intent);
                     }
                 }
@@ -118,6 +110,16 @@ public class BookstoreActivity extends AppCompatActivity
 
     @Override
     public void onLoaderReset(Loader<List<Book>> loader) {
+    }
+
+    private void fillingFieldsInViewBookFragment(Book book) {
+        mCode.setText(book.getCode());
+        mName.setText(book.getName());
+        mAuthor.setText(book.getAuthor());
+        mLanguage.setText(book.getLanguage());
+        mPages.setText(book.getPages());
+        mPrice.setText(book.getPrice());
+        mLink.setText(book.getLink());
     }
 
     private static class BookLoader extends AbstractLoader<List<Book>> {
