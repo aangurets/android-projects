@@ -49,8 +49,6 @@ public class ViewBookActivity extends AppCompatActivity {
         if (mPosition != -1) {
             Book mBook = BookStorage.getInstance().getBook(mPosition);
 
-            Toast.makeText(this, "Book position is " + mPosition, Toast.LENGTH_LONG).show();
-
             fillingFieldsInViewBookFragment(mBook);
         } else {
             Log.d(Constants.LOG_TAG, "Error. The position of the selected book is not received.");
