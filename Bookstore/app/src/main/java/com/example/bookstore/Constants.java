@@ -5,7 +5,7 @@ package com.example.bookstore;
  */
 public class Constants {
 
-    public static final String LOG_TAG = "MY.LOG";
+    public static final String LOG_TAG = "OWN_LOG";
     public static final String SELECTED_BOOK = "selected book position";
     public static final String URL = "http://bride.by/books.json";
 

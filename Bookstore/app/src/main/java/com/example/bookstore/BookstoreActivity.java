@@ -64,10 +64,6 @@ public class BookstoreActivity extends AppCompatActivity
                 getFragmentManager().findFragmentById(R.id.bookstore_fragment_id_in_activity);
         View mFragment = mBookstoreFragment.getView();
 
-//        final ViewBookFragment viewBookFragment =
-//                (ViewBookFragment) getFragmentManager()
-//                        .findFragmentById(R.id.view_book_fragment_id_in_activity);
-
         try {
             mBookListView = (ListView) mFragment;
             mBookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -86,7 +82,7 @@ public class BookstoreActivity extends AppCompatActivity
                 }
             });
         } catch (NullPointerException e) {
-            Log.d(Constants.LOG_TAG, "Error = " + e);
+            Log.d(Constants.LOG_TAG, "NullPointerException = " + e);
         }
         getLoaderManager().initLoader(1, null, this);
     }
@@ -112,7 +108,7 @@ public class BookstoreActivity extends AppCompatActivity
     public void onLoaderReset(Loader<List<Book>> loader) {
     }
 
-    private void fillingFieldsInViewBookFragment(Book book) {
+    public void fillingFieldsInViewBookFragment(Book book) {
         mCode.setText(book.getCode());
         mName.setText(book.getName());
         mAuthor.setText(book.getAuthor());

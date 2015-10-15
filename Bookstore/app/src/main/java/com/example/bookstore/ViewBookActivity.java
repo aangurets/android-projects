@@ -2,6 +2,7 @@ package com.example.bookstore;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,7 +53,7 @@ public class ViewBookActivity extends AppCompatActivity {
 
             fillingFieldsInViewBookFragment(mBook);
         } else {
-            Toast.makeText(this, "Error!!!! Error!!!", Toast.LENGTH_LONG).show();
+            Log.d(Constants.LOG_TAG, "Error. The position of the selected book is not received.");
         }
     }
 
