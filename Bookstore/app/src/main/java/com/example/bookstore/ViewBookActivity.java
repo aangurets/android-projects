@@ -54,20 +54,6 @@ public class ViewBookActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.favorite_action:
-                return true;
-            case R.id.switch_view_action:
-                return true;
-            case R.id.exit_action:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
     private void fillingFieldsInViewBookFragment(Book book) {
         mCode.setText(book.getCode());
         mName.setText(book.getName());

@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -114,6 +115,26 @@ public class BookstoreActivity extends AppCompatActivity
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.bookstore_activity_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.favorite_action:
+                Log.d(Constants.LOG_TAG, "Favorite action button pressed");
+                return true;
+
+            case R.id.switch_view_action:
+                Log.d(Constants.LOG_TAG, "Switch view action button pressed");
+                return true;
+
+            case R.id.exit_action:
+                Log.d(Constants.LOG_TAG, "Exit action button pressed");
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
