@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import by.example.bookstore.adapter.BookAdapter;
 import by.example.bookstore.datahandling.DataParser;
@@ -119,7 +120,11 @@ public class BookstoreActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.favorite_action:
                 Log.d(Constants.LOG_TAG, "Favorite action button pressed");
-                mBookListView.setAdapter(new BookAdapter(this, BookStorage.getInstance().getFavoritesBooks()));
+                if (BookStorage.getInstance().getFavoritesBooks().isEmpty()) {
+                    Toast.makeText(this, "No favorite books", Toast.LENGTH_SHORT).show();
+                } else {
+                    mBookListView.setAdapter(new BookAdapter(this, BookStorage.getInstance().getFavoritesBooks()));
+                }
                 return true;
 
             default:

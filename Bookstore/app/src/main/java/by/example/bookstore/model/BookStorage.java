@@ -56,10 +56,6 @@ public class BookStorage {
     }
 
     public List<Book> getFavoritesBooks() {
-        if (!mFavoriteBooks.isEmpty()) {
             return mFavoriteBooks;
-        } else {
-            throw new IllegalArgumentException("Favorite books list is empty");
-        }
     }
 }
