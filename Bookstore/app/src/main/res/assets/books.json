@@ -1,0 +1,74 @@
+[
+  {
+    "code": 17562834,
+    "name": "Pro Android 5",
+    "author": "Dave MacLean",
+    "lang": "Английский",
+    "pages": 624,
+    "price": 558,
+    "link": "http://www.amazon.com/Pro-Android-5-Dave-MacLean/"
+  },
+  {
+    "code": 23529814,
+    "name": "Android Design Patterns",
+    "author": "Greg Nudelman",
+    "lang": "Английский",
+    "pages": 704,
+    "price": 728,
+    "link": "http://www.amazon.com/Android-Design-Patterns-Interaction-Developers/"
+  },
+  {
+    "code": 7328622,
+    "name": "Java: The Complete Reference",
+    "author": "Herbert Schildt",
+    "lang": "Английский",
+    "pages": 768,
+    "price": 532,
+    "link": "http://www.amazon.com/Java-Complete-Reference/"
+  },
+  {
+    "code": 7449696,
+    "name": "Java in a Nutshell",
+    "author": "Benjamin J Evans",
+    "lang": "Английский",
+    "pages": 560,
+    "price": 401,
+    "link": "http://www.amazon.com/Java-Nutshell-Benjamin-J-Evans/"
+  },
+  {
+    "code": 18567147,
+    "name": "Android Programming",
+    "author": "Hardy Brian",
+    "lang": "Английский",
+    "pages": 72,
+    "price": 191,
+    "link": "http://www.usegoodbooks.com/book/UK/9780321804334/Android_Programming"
+  },
+  {
+    "code": 7251677,
+    "name": "Android Cookbook",
+    "author": "Darwin Ian F",
+    "lang": "Английский",
+    "pages": 256,
+    "price": 145,
+    "link": "http://www.usegoodbooks.com/book/US/9781449388416/Android_Cookbook"
+  },
+  {
+    "code": 54487954,
+    "name": "Effective Java (2nd Edition)",
+    "author": "Joshua Bloch",
+    "lang": "Английский",
+    "pages": 341,
+    "price": 204,
+    "link": "http://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/"
+  },
+  {
+    "code": 1391594716,
+    "name": "Java Programming Guide",
+    "author": "GradeStack Education",
+    "lang": "Английский",
+    "pages": 510,
+    "price": 145,
+    "link": "http://www.amazon.com/GradeStack-Education-Java-Programming-Guide/dp/B00F6NPLRI/ref=sr_1_3?ie=UTF8&qid=1391594716&sr=8-3&keywords=java"
+  }
+]
