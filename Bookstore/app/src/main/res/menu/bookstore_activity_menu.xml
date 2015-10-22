@@ -3,20 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/favorite_action"
-        android:icon="@drawable/ic_action_favorite_list"
-        android:title="@string/search_action"
+        android:icon="@drawable/ic_favorite_action"
+        android:title="@string/favorite_action"
         app:showAsAction="always" />
-
-    <item
-        android:id="@+id/switch_view_action"
-        android:icon="@drawable/list_ico"
-        android:title="@string/switch_view_action"
-        app:showAsAction="always" />
-
-    <item
-        android:id="@+id/exit_action"
-        android:icon="@drawable/exit_action_ico"
-        android:title="@string/exit_action"
-        app:showAsAction="ifRoom" />
 
 </menu>

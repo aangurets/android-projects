@@ -8,9 +8,7 @@
     <string name="price">Price</string>
     <string name="link">Link</string>
     <string name="view_book_activity_name">View book activity</string>
-    <string name="search_action">Search</string>
-    <string name="switch_view_action">Switch view</string>
-    <string name="exit_action">Exit</string>
+    <string name="favorite_action">Favorite mode</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

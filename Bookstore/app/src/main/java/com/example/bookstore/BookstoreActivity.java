@@ -124,14 +124,6 @@ public class BookstoreActivity extends AppCompatActivity
                 Log.d(Constants.LOG_TAG, "Favorite action button pressed");
                 return true;
 
-            case R.id.switch_view_action:
-                Log.d(Constants.LOG_TAG, "Switch view action button pressed");
-                return true;
-
-            case R.id.exit_action:
-                Log.d(Constants.LOG_TAG, "Exit action button pressed");
-                return true;
-
             default:
                 return super.onOptionsItemSelected(item);
         }
