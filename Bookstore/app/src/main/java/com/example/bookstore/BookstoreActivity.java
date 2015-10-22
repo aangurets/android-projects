@@ -16,11 +16,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bookstore.adapter.BookAdapter;
+import com.example.bookstore.datahandling.DataParser;
 import com.example.bookstore.loader.AbstractLoader;
 import com.example.bookstore.model.Book;
 import com.example.bookstore.model.BookStorage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
@@ -141,18 +144,14 @@ public class BookstoreActivity extends AppCompatActivity
 
         @Override
         public List<Book> loadInBackground() {
-            ObjectMapper mapper = new ObjectMapper();
+            DataParser mParser = new DataParser();
+            URL mResource = null;
             try {
-                java.net.URL mResource =
-                        new URL(Constants.URL);
-                Book[] books = mapper.readValue(mResource, Book[].class);
-                for (Book book : books) {
-                    BookStorage.getInstance().addBook(book);
-                }
-            } catch (Exception e) {
+                mResource = new URL(Constants.URL);
+            } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-            return BookStorage.getInstance().getBooks();
+            return mParser.parseBookList(mResource);
         }
 
         @Override
