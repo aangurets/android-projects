@@ -7,9 +7,11 @@ public class BookStorage {
 
     public static BookStorage sBookStorage;
     private List<Book> mBooks;
+    private List<Book> mFavoriteBooks;
 
     public BookStorage() {
         mBooks = new ArrayList<>();
+        mFavoriteBooks = new ArrayList<>();
     }
 
     public static BookStorage getInstance() {
@@ -27,11 +29,23 @@ public class BookStorage {
         mBooks.add(book);
     }
 
+    public void addFavoriteBook(Book book) {
+        mFavoriteBooks.add(book);
+    }
+
     public List<Book> getBooks() {
         if (!mBooks.isEmpty()) {
             return mBooks;
         } else {
             throw new IllegalArgumentException("Book storage is empty!!");
+        }
+    }
+
+    public List<Book> getFavoritesBooks() {
+        if (!mFavoriteBooks.isEmpty()) {
+            return mFavoriteBooks;
+        } else {
+            throw new IllegalArgumentException("Favorite books list is empty");
         }
     }
 }

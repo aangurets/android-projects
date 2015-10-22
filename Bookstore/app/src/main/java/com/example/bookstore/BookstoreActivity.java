@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.bookstore.adapter.BookAdapter;
 import com.example.bookstore.loader.AbstractLoader;
@@ -64,8 +65,8 @@ public class BookstoreActivity extends AppCompatActivity
                 getFragmentManager().findFragmentById(R.id.bookstore_fragment_id_in_activity);
         View mFragment = mBookstoreFragment.getView();
 
+        mBookListView = (ListView) mFragment;
         try {
-            mBookListView = (ListView) mFragment;
             mBookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -82,7 +83,21 @@ public class BookstoreActivity extends AppCompatActivity
                 }
             });
         } catch (NullPointerException e) {
-            Log.d(Constants.LOG_TAG, "NullPointerException = " + e);
+            Log.d(Constants.LOG_TAG, "setOnItemClickListener.NullPointerException = " + e);
+        }
+        try {
+            mBookListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                    Book book = BookStorage.getInstance().getBook(position);
+                    BookStorage.getInstance().addFavoriteBook(book);
+                    Toast.makeText(BookstoreActivity.this, "Book: " + book.getName() +
+                            " added to favorite", Toast.LENGTH_LONG).show();
+                    return true;
+                }
+            });
+        } catch (Exception e) {
+            Log.d(Constants.LOG_TAG, "setOnItemLongClickListener.Exception = " + e);
         }
         getLoaderManager().initLoader(1, null, this);
     }
