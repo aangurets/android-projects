@@ -93,9 +93,8 @@ public class BookstoreActivity extends AppCompatActivity
                 @Override
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                     Book book = BookStorage.getInstance().getBook(position);
+                    Log.d(Constants.LOG_TAG, "Book \"" + book.getName() + "\" added to favorite");
                     BookStorage.getInstance().addFavoriteBook(book);
-                    Toast.makeText(BookstoreActivity.this, "Book: " + book.getName() +
-                            " added to favorite", Toast.LENGTH_LONG).show();
                     return true;
                 }
             });

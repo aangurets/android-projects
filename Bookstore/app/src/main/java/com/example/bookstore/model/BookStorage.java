@@ -1,5 +1,9 @@
 package com.example.bookstore.model;
 
+import android.util.Log;
+
+import com.example.bookstore.Constants;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +35,9 @@ public class BookStorage {
 
     public void addFavoriteBook(Book book) {
         mFavoriteBooks.add(book);
+        book.setIsFavorite(true);
+        Log.d(Constants.LOG_TAG, "Is favorite book \""
+                + book.getName() + "\" flag = " + book.isFavorite());
     }
 
     public List<Book> getBooks() {

@@ -25,6 +25,16 @@ public class Book {
     @JsonProperty("link")
     private String mLink;
 
+    private boolean isFavorite;
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setIsFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
+    }
+
     public String getCode() {
         return String.valueOf(mCode);
     }
