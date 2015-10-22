@@ -122,6 +122,7 @@ public class BookstoreActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.favorite_action:
                 Log.d(Constants.LOG_TAG, "Favorite action button pressed");
+                mBookListView.setAdapter(new BookAdapter(this, BookStorage.getInstance().getFavoritesBooks()));
                 return true;
 
             default:
