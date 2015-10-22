@@ -1,4 +1,4 @@
-package com.example.bookstore;
+package by.example.bookstore;
 
 
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 public class BookstoreFragment extends Fragment {
 

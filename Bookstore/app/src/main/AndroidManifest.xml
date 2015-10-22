@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bookstore">
+    package="by.example.bookstore">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <application
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".BookstoreActivity"
+            android:name="by.example.bookstore.BookstoreActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

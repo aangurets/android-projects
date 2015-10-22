@@ -1,4 +1,4 @@
-package com.example.bookstore;
+package by.example.bookstore;
 
 import android.app.LoaderManager;
 import android.content.Context;
@@ -14,16 +14,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.bookstore.adapter.BookAdapter;
-import com.example.bookstore.datahandling.DataParser;
-import com.example.bookstore.loader.AbstractLoader;
-import com.example.bookstore.model.Book;
-import com.example.bookstore.model.BookStorage;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import by.example.bookstore.adapter.BookAdapter;
+import by.example.bookstore.datahandling.DataParser;
+import by.example.bookstore.loader.AbstractLoader;
+import by.example.bookstore.model.Book;
+import by.example.bookstore.model.BookStorage;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;

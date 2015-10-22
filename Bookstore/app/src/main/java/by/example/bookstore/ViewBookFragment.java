@@ -1,4 +1,4 @@
-package com.example.bookstore;
+package by.example.bookstore;
 
 
 import android.os.Bundle;

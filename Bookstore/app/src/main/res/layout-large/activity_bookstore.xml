@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/bookstore_fragment_id_in_activity"
-        android:name="com.example.bookstore.BookstoreFragment"
+        android:name="by.example.bookstore.BookstoreFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/view_book_fragment_id_in_activity"
-        android:name="com.example.bookstore.ViewBookFragment"
+        android:name="by.example.bookstore.ViewBookFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"

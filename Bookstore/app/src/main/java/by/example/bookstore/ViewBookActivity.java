@@ -1,13 +1,12 @@
-package com.example.bookstore;
+package by.example.bookstore;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.bookstore.model.Book;
-import com.example.bookstore.model.BookStorage;
+import by.example.bookstore.model.Book;
+import by.example.bookstore.model.BookStorage;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

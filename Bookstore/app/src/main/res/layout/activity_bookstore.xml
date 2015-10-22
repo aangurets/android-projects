@@ -7,14 +7,14 @@
 
     <fragment
         android:id="@+id/bookstore_fragment_id_in_activity"
-        android:name="com.example.bookstore.BookstoreFragment"
+        android:name="by.example.bookstore.BookstoreFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_bookstore" />
 
     <fragment
         android:id="@+id/view_book_fragment_id_in_activity"
-        android:name="com.example.bookstore.ViewBookFragment"
+        android:name="by.example.bookstore.ViewBookFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_view_book" />

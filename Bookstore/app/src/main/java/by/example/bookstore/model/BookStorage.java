@@ -1,8 +1,8 @@
-package com.example.bookstore.model;
+package by.example.bookstore.model;
 
 import android.util.Log;
 
-import com.example.bookstore.Constants;
+import by.example.bookstore.Constants;
 
 import java.util.ArrayList;
 import java.util.List;

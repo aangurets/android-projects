@@ -1,7 +1,7 @@
-package com.example.bookstore.datahandling;
+package by.example.bookstore.datahandling;
 
-import com.example.bookstore.model.Book;
-import com.example.bookstore.model.BookStorage;
+import by.example.bookstore.model.Book;
+import by.example.bookstore.model.BookStorage;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

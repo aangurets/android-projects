@@ -1,4 +1,4 @@
-package com.example.bookstore;
+package by.example.bookstore;
 
 /**
  * Created by aangurets on 03-Sep-15.

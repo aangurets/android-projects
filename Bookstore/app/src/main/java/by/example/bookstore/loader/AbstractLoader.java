@@ -1,4 +1,4 @@
-package com.example.bookstore.loader;
+package by.example.bookstore.loader;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;

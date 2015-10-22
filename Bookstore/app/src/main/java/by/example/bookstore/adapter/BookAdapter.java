@@ -1,4 +1,4 @@
-package com.example.bookstore.adapter;
+package by.example.bookstore.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.bookstore.Constants;
-import com.example.bookstore.R;
-import com.example.bookstore.model.Book;
-import com.example.bookstore.model.BookStorage;
+import by.example.bookstore.Constants;
+import by.example.bookstore.R;
+import by.example.bookstore.model.Book;
+import by.example.bookstore.model.BookStorage;
 
 import java.util.List;
 
