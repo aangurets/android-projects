@@ -40,6 +40,13 @@ public class BookStorage {
                 + book.getName() + "\" flag = " + book.isFavorite());
     }
 
+    public void removeFavoriteBook(Book book) {
+        mFavoriteBooks.remove(book);
+        book.setIsFavorite(false);
+        Log.d(Constants.LOG_TAG, "Is favorite book \""
+                + book.getName() + "\" flag = " + book.isFavorite());
+    }
+
     public List<Book> getBooks() {
         if (!mBooks.isEmpty()) {
             return mBooks;
