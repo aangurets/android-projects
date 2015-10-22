@@ -57,7 +57,7 @@ public class ViewBookActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.search_action:
+            case R.id.favorite_action:
                 return true;
             case R.id.switch_view_action:
                 return true;
