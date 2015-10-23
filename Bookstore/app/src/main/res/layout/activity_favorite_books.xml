@@ -6,10 +6,10 @@
     android:orientation="vertical">
 
     <fragment
-        android:id="@+id/bookstore_fragment_id_in_activity"
-        android:name="by.example.bookstore.BookstoreFragment"
+        android:id="@+id/favorite_book_fragment_in_activity"
+        android:name="by.example.bookstore.FavoriteBooksFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_bookstore" />
+        tools:layout="@layout/fragment_favorite_books" />
 
 </LinearLayout>
