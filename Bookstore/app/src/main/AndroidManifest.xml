@@ -15,9 +15,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ViewBookActivity"
             android:label="@string/app_name" />
+
+        <activity
+            android:name=".FavoriteBooksActivity"
+            android:label="@string/favorite_books_activity" />
 
     </application>
 

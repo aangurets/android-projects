@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -35,24 +36,31 @@ public class BookstoreActivity extends AppCompatActivity
 
     private ListView mBookListView;
 
+    @Nullable
     @Bind(R.id.book_view_code)
     TextView mCode;
 
+    @Nullable
     @Bind(R.id.book_view_name)
     TextView mName;
 
+    @Nullable
     @Bind(R.id.book_view_author)
     TextView mAuthor;
 
+    @Nullable
     @Bind(R.id.book_view_language)
     TextView mLanguage;
 
+    @Nullable
     @Bind(R.id.book_view_pages)
     TextView mPages;
 
+    @Nullable
     @Bind(R.id.book_view_price)
     TextView mPrice;
 
+    @Nullable
     @Bind(R.id.book_view_link)
     TextView mLink;
 
@@ -129,7 +137,8 @@ public class BookstoreActivity extends AppCompatActivity
                 if (BookStorage.getInstance().getFavoritesBooks().isEmpty()) {
                     Toast.makeText(this, "No favorite books", Toast.LENGTH_SHORT).show();
                 } else {
-                    mBookListView.setAdapter(new BookAdapter(this, BookStorage.getInstance().getFavoritesBooks()));
+                    Intent intent = new Intent(this, FavoriteBooksActivity.class);
+                    startActivity(intent);
                     updateList();
                 }
                 return true;
