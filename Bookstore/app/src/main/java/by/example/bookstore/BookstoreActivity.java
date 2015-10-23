@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -94,8 +95,12 @@ public class BookstoreActivity extends AppCompatActivity
                     Book book = BookStorage.getInstance().getBook(position);
                     if (book.isFavorite()) {
                         Log.d(Constants.LOG_TAG, "Book \"" + book.getName() + "\" remove from favorite");
+                        Toast.makeText(BookstoreActivity.this, "Book \"" + book.getName()
+                                + "\" remove from favorite", Toast.LENGTH_SHORT).show();
                         BookStorage.getInstance().removeFavoriteBook(book);
                     } else {
+                        Toast.makeText(BookstoreActivity.this, "Book \"" + book.getName()
+                                + "\' added to favorite", Toast.LENGTH_SHORT).show();
                         Log.d(Constants.LOG_TAG, "Book \"" + book.getName() + "\" added to favorite");
                         BookStorage.getInstance().addFavoriteBook(book);
                     }
@@ -118,18 +123,24 @@ public class BookstoreActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+
             case R.id.favorite_action:
                 Log.d(Constants.LOG_TAG, "Favorite action button pressed");
                 if (BookStorage.getInstance().getFavoritesBooks().isEmpty()) {
                     Toast.makeText(this, "No favorite books", Toast.LENGTH_SHORT).show();
                 } else {
                     mBookListView.setAdapter(new BookAdapter(this, BookStorage.getInstance().getFavoritesBooks()));
+                    updateList();
                 }
                 return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void updateList() {
+        ((BaseAdapter) mBookListView.getAdapter()).notifyDataSetChanged();
     }
 
     @Override
