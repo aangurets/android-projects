@@ -1,0 +1,101 @@
+[
+    {
+        "code": 1756834,
+        "name": "Pro Android 5",
+        "author": "Dave MacLean",
+        "lang": "Английский",
+        "pages": 624,
+        "price": 558,
+        "link": "http://www.amazon.com/Pro-Android-5-Dave-MacLean/"
+    },
+    {
+        "code": 235214,
+        "name": "Android Design Patterns",
+        "author": "Greg Nudelman",
+        "lang": "Английский",
+        "pages": 704,
+        "price": 728,
+        "link": "http://www.amazon.com/Android-Design-Patterns-Interaction-Developers/"
+    },
+    {
+        "code": 732822,
+        "name": "Java: The Complete Reference",
+        "author": "Herbert Schildt",
+        "lang": "Английский",
+        "pages": 768,
+        "price": 532,
+        "link": "http://www.amazon.com/Java-Complete-Reference/"
+    },
+    {
+        "code": 744996,
+        "name": "Java in a Nutshell",
+        "author": "Benjamin J Evans",
+        "lang": "Английский",
+        "pages": 560,
+        "price": 401,
+        "link": "http://www.amazon.com/Java-Nutshell-Benjamin-J-Evans/"
+    },
+    {
+        "code": 185647,
+        "name": "Android Programming",
+        "author": "Hardy Brian",
+        "lang": "Английский",
+        "pages": 72,
+        "price": 191,
+        "link": "http://www.usegoodbooks.com/book/UK/9780321804334/Android_Programming"
+    },
+    {
+        "code": 72517,
+        "name": "Android Cookbook",
+        "author": "Darwin Ian F",
+        "lang": "Английский",
+        "pages": 256,
+        "price": 145,
+        "link": "http://www.usegoodbooks.com/book/US/9781449388416/Android_Cookbook"
+    },
+    {
+        "code": 544854,
+        "name": "Effective Java (2nd Edition)",
+        "author": "Joshua Bloch",
+        "lang": "Английский",
+        "pages": 341,
+        "price": 204,
+        "link": "http://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/"
+    },
+    {
+        "code": 1391716,
+        "name": "Java Programming Guide",
+        "author": "GradeStack Education",
+        "lang": "Английский",
+        "pages": 510,
+        "price": 145,
+         "link": "http://www.amazon.com/"
+    },
+        {
+        "code": 21,
+        "name": "The Swift Programming Language (Swift 2.1)",
+        "author": "Apple Inc.",
+        "lang": "Английский",
+        "pages": 500,
+        "price": 12,
+        "link": "https://itunes.apple.com/gb/book/swift-programming-language/id881256329?mt=11"
+    },
+        {
+        "code": 20034,
+        "name": "iOS 8 Swift Programming Cookbook",
+        "author": "Vandad Nahavandipoor",
+        "lang": "Английский",
+        "pages": 902,
+        "price": 51,
+        "link": "http://shop.oreilly.com/product/0636920034254.do#tab_04_2"
+    },
+        {
+        "code": 63692,
+        "name": "Learning Swift",
+        "author": "Paris Buttfield-Addison, Jon Manning, Tim Nugent",
+        "lang": "Английский",
+        "pages": 350,
+        "price": 34,
+        "link": "http://shop.oreilly.com/product/0636920045946.do?green=AA24993C-7AE6-53D0-09C0-87D1A2126EF8&intcmp=af-mybuy-0636920045946.IP"
+    }
+]
