@@ -1,5 +1,6 @@
 package by.example.bookstore;
 
+import android.app.FragmentTransaction;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
@@ -137,9 +138,17 @@ public class BookstoreActivity extends AppCompatActivity
                 if (BookStorage.getInstance().getFavoritesBooks().isEmpty()) {
                     Toast.makeText(this, "No favorite books", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intent = new Intent(this, FavoriteBooksActivity.class);
-                    startActivity(intent);
-                    updateList();
+                    String mString = BookstoreActivity.this.getString(R.string.screen_type);
+
+                    if (mString.equals("tablet")) {
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        FavoriteBooksFragment mFavoriteBooksFragment = new FavoriteBooksFragment();
+                        ft.replace(R.id.bookstore_fragment_id_in_activity, mFavoriteBooksFragment);
+                        ft.commit();
+                    } else if (mString.equals("phone")) {
+                        Intent intent = new Intent(this, FavoriteBooksActivity.class);
+                        startActivity(intent);
+                    }
                 }
                 return true;
 
