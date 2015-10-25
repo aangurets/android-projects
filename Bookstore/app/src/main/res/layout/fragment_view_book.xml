@@ -1,48 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_blue_grey_950"
-    android:orientation="vertical">
+    android:background="@color/material_blue_grey_950">
 
-    <TextView
-        android:id="@+id/title_in_view_book"
-        style="@style/ViewBook.Title.Large."
-        android:text="@string/view_book" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/book_view_code"
-        style="@style/ViewBook.Item.Medium"
-        android:text="@string/code" />
+        <TextView
+            android:id="@+id/title_in_view_book"
+            style="@style/ViewBook.Title.Large."
+            android:text="@string/view_book" />
+    </TableRow>
 
-    <TextView
-        android:id="@+id/book_view_name"
-        style="@style/ViewBook.Item.Medium"
-        android:text="@string/name" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/book_view_author"
-        style="@style/ViewBook.Item.Medium"
-        android:text="@string/author" />
+        <TextView
+            android:id="@+id/code_name_field"
+            style="@style/ViewBook.NameField.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/code" />
 
-    <TextView
-        android:id="@+id/book_view_language"
-        style="@style/ViewBook.Item.Medium"
-        android:text="@string/language" />
+        <TextView
+            android:id="@+id/book_view_code"
+            style="@style/ViewBook.Item.Large"
+            android:layout_column="1" />
+    </TableRow>
 
-    <TextView
-        android:id="@+id/book_view_pages"
-        style="@style/ViewBook.Item.Medium"
-        android:text="@string/pages" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/book_view_price"
-        style="@style/ViewBook.Item.Medium"
-        android:text="@string/price" />
+        <TextView
+            android:id="@+id/code_name_name_field"
+            style="@style/ViewBook.NameField.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/name" />
 
-    <TextView
-        android:id="@+id/book_view_link"
-        style="@style/ViewBook.Item.Medium"
-        android:text="@string/link" />
+        <TextView
+            android:id="@+id/book_view_name"
+            style="@style/ViewBook.Item.Large"
+            android:layout_column="1" />
+    </TableRow>
 
-</LinearLayout>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/author_name_field"
+            style="@style/ViewBook.NameField.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/author" />
+
+        <TextView
+            android:id="@+id/book_view_author"
+            style="@style/ViewBook.Item.Large"
+            android:layout_column="1" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/language_name_fiels"
+            style="@style/ViewBook.NameField.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/language" />
+
+        <TextView
+            android:id="@+id/book_view_language"
+            style="@style/ViewBook.Item.Large"
+            android:layout_column="1" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/pages_name_field"
+            style="@style/ViewBook.NameField.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/pages" />
+
+        <TextView
+            android:id="@+id/book_view_pages"
+            style="@style/ViewBook.Item.Large"
+            android:layout_column="1" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/price_name_field"
+            style="@style/ViewBook.NameField.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/price" />
+
+        <TextView
+            android:id="@+id/book_view_price"
+            style="@style/ViewBook.Item.Large"
+            android:layout_column="1" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/link_name_field"
+            style="@style/ViewBook.NameField.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/link" />
+
+        <TextView
+            android:id="@+id/book_view_link"
+            style="@style/ViewBook.Item.Large"
+            android:layout_column="1" />
+    </TableRow>
+
+</TableLayout>

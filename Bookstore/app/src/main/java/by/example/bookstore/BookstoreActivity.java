@@ -167,13 +167,17 @@ public class BookstoreActivity extends AppCompatActivity
     }
 
     public void fillingFieldsInViewBookFragment(Book book) {
-        mCode.setText(book.getCode());
-        mName.setText(book.getName());
-        mAuthor.setText(book.getAuthor());
-        mLanguage.setText(book.getLanguage());
-        mPages.setText(book.getPages());
-        mPrice.setText(book.getPrice());
-        mLink.setText(book.getLink());
+        try {
+            mCode.setText(book.getCode());
+            mName.setText(book.getName());
+            mAuthor.setText(book.getAuthor());
+            mLanguage.setText(book.getLanguage());
+            mPages.setText(book.getPages());
+            mPrice.setText(book.getPrice());
+            mLink.setText(book.getLink());
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     private static class BookLoader extends AbstractLoader<List<Book>> {

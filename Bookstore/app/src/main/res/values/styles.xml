@@ -5,10 +5,17 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="ViewBook.Item.Medium" parent="TextAppearance.AppCompat.Medium">
+    <style name="ViewBook.NameField.Medium" parent="TextAppearance.AppCompat.Medium">
         <item name="android:textColor">#ff80cbc4</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ViewBook.Item.Large" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">#ff80cbc4</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
     </style>
 
     <style name="ViewBook.Title.Large." parent="TextAppearance.AppCompat.Large">
