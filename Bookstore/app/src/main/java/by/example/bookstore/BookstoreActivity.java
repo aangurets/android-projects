@@ -155,15 +155,15 @@ public class BookstoreActivity extends AppCompatActivity
     }
 
     private void goToFavorite(String deviceType) {
-        if (deviceType.equals("tablet")) {
+     /*   if (deviceType.equals("tablet")) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             FavoriteBooksFragment mFavoriteBooksFragment = new FavoriteBooksFragment();
             ft.replace(R.id.bookstore_fragment_id_in_activity, mFavoriteBooksFragment);
             ft.commit();
-        } else if (deviceType.equals("phone")) {
+        } else if (deviceType.equals("phone")) {*/
             Intent intent = new Intent(this, FavoriteBooksActivity.class);
             startActivity(intent);
-        }
+ //       }
     }
 
     private void updateList() {

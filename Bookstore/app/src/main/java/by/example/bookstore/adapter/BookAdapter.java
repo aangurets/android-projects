@@ -21,6 +21,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
         LayoutInflater.from(context);
     }
 
+
     @Override
     public Book getItem(int position) {
         return BookStorage.getInstance().getBook(position);
