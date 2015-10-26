@@ -85,13 +85,7 @@ public class BookstoreActivity extends AppCompatActivity
 
                     String mString = BookstoreActivity.this.getString(R.string.screen_type);
 
-                    if (mString.equals("tablet")) {
-                        fillingFieldsInViewBookFragment(BookStorage.getInstance().getBook(position));
-                    } else if (mString.equals("phone")) {
-                        Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
-                        intent.putExtra(Constants.SELECTED_BOOK, position);
-                        startActivity(intent);
-                    }
+                    goToViewBook(position, mString);
                 }
             });
         } catch (NullPointerException e) {
@@ -102,17 +96,7 @@ public class BookstoreActivity extends AppCompatActivity
                 @Override
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                     Book book = BookStorage.getInstance().getBook(position);
-                    if (book.isFavorite()) {
-                        Log.d(Constants.LOG_TAG, "Book \"" + book.getName() + "\" remove from favorite");
-                        Toast.makeText(BookstoreActivity.this, "Book \"" + book.getName()
-                                + "\" remove from favorite", Toast.LENGTH_SHORT).show();
-                        BookStorage.getInstance().removeFavoriteBook(book);
-                    } else {
-                        Toast.makeText(BookstoreActivity.this, "Book \"" + book.getName()
-                                + "\' added to favorite", Toast.LENGTH_SHORT).show();
-                        Log.d(Constants.LOG_TAG, "Book \"" + book.getName() + "\" added to favorite");
-                        BookStorage.getInstance().addFavoriteBook(book);
-                    }
+                    addOrDeleteFavoriteList(book);
                     return true;
                 }
             });
@@ -120,6 +104,28 @@ public class BookstoreActivity extends AppCompatActivity
             Log.d(Constants.LOG_TAG, "setOnItemLongClickListener.Exception = " + e);
         }
         getLoaderManager().initLoader(1, null, this);
+    }
+
+    private void goToViewBook(int position, String deviceType) {
+        if (deviceType.equals("tablet")) {
+            fillingFieldsInViewBookFragment(BookStorage.getInstance().getBook(position));
+        } else if (deviceType.equals("phone")) {
+            Intent intent = new Intent(BookstoreActivity.this, ViewBookActivity.class);
+            intent.putExtra(Constants.SELECTED_BOOK, position);
+            startActivity(intent);
+        }
+    }
+
+    private void addOrDeleteFavoriteList(Book book) {
+        if (book.isFavorite()) {
+            Toast.makeText(BookstoreActivity.this, "Book \"" + book.getName()
+                    + "\" remove from favorite", Toast.LENGTH_SHORT).show();
+            BookStorage.getInstance().removeFavoriteBook(book);
+        } else {
+            Toast.makeText(BookstoreActivity.this, "Book \"" + book.getName()
+                    + "\' added to favorite", Toast.LENGTH_SHORT).show();
+            BookStorage.getInstance().addFavoriteBook(book);
+        }
     }
 
     @Override
@@ -134,26 +140,29 @@ public class BookstoreActivity extends AppCompatActivity
         switch (item.getItemId()) {
 
             case R.id.favorite_action:
-                Log.d(Constants.LOG_TAG, "Favorite action button pressed");
                 if (BookStorage.getInstance().getFavoritesBooks().isEmpty()) {
                     Toast.makeText(this, "No favorite books", Toast.LENGTH_SHORT).show();
                 } else {
-                    String mString = BookstoreActivity.this.getString(R.string.screen_type);
+                    String mDeviceType = BookstoreActivity.this.getString(R.string.screen_type);
 
-                    if (mString.equals("tablet")) {
-                        FragmentTransaction ft = getFragmentManager().beginTransaction();
-                        FavoriteBooksFragment mFavoriteBooksFragment = new FavoriteBooksFragment();
-                        ft.replace(R.id.bookstore_fragment_id_in_activity, mFavoriteBooksFragment);
-                        ft.commit();
-                    } else if (mString.equals("phone")) {
-                        Intent intent = new Intent(this, FavoriteBooksActivity.class);
-                        startActivity(intent);
-                    }
+                    goToFavorite(mDeviceType);
                 }
                 return true;
 
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void goToFavorite(String deviceType) {
+        if (deviceType.equals("tablet")) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            FavoriteBooksFragment mFavoriteBooksFragment = new FavoriteBooksFragment();
+            ft.replace(R.id.bookstore_fragment_id_in_activity, mFavoriteBooksFragment);
+            ft.commit();
+        } else if (deviceType.equals("phone")) {
+            Intent intent = new Intent(this, FavoriteBooksActivity.class);
+            startActivity(intent);
         }
     }
 
