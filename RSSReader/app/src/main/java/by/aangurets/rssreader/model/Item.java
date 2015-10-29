@@ -73,14 +73,14 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "mTitle='" + mTitle + '\'' +
-                ", mDescription='" + mDescription + '\'' +
-                ", mLink='" + mLink + '\'' +
-                ", mGuid='" + mGuid + '\'' +
-                ", mPubDate='" + mPubDate + '\'' +
-                ", mImageLink='" + mImageLink + '\'' +
-                ", mCategory='" + mCategory + '\'' +
+        return "Item: " +
+                " Title = " + mTitle + '\'' +
+                ", Description = " + mDescription + '\'' +
+                ", Link = " + mLink + '\'' +
+                ", Guid = " + mGuid + '\'' +
+                ", PubDate = " + mPubDate + '\'' +
+                ", ImageLink = " + mImageLink + '\'' +
+                ", Category = " + mCategory + '\'' +
                 '}';
     }
 }

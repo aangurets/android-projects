@@ -40,6 +40,7 @@ public class XMLParsing {
                         break;
 
                     case XmlPullParser.END_TAG:
+
                         if (mName.equals("title")) {
                             mItem.setmTitle(mText);
                         } else if (mName.equals("description")) {
@@ -55,12 +56,10 @@ public class XMLParsing {
                         } else if (mName.equals("category")) {
                             mItem.setmCategory(mText);
                         }
+                        ItemsStorage.getInstance().addItem(mItem);
                         break;
                 }
                 mEvent = xmlPullParser.next();
-
-                Log.d(Constants.LOG_TAG, String.valueOf(mItem));
-                ItemsStorage.getInstance().addItem(mItem);
             }
         } catch (Exception e) {
             e.printStackTrace();
