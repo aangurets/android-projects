@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 /**
  * Created by andrei.angurets on 28/10/2015.
  */
-public class NewsListFragment extends Fragment {
+public class ItemsListFragment extends Fragment {
 
     @Nullable
     @Override

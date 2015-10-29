@@ -1,8 +1,11 @@
 package by.aangurets.rssreader.storage;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import by.aangurets.rssreader.Constants;
 import by.aangurets.rssreader.model.Item;
 
 /**
@@ -26,13 +29,16 @@ public class ItemsStorage {
 
     public void addItem(Item item) {
         mItems.add(item);
+        Log.d(Constants.LOG_TAG, "addItem " + item);
     }
 
     public Item getItem(int position) {
+        Log.d(Constants.LOG_TAG, "getItem " + mItems.get(position));
         return mItems.get(position);
     }
 
     public List<Item> getItems() {
+        Log.d(Constants.LOG_TAG, "getItems");
         if (!mItems.isEmpty()) {
             return mItems;
         } else {

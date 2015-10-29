@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/news_list_fragment_in_activity"
-        android:name="by.aangurets.rssreader.NewsListFragment"
+        android:name="by.aangurets.rssreader.ItemsListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_news_list" />
