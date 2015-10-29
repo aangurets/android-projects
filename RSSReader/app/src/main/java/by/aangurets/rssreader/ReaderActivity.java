@@ -16,8 +16,6 @@ import android.view.MenuItem;
 public class ReaderActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private final String mFaktyUrl = "http://www.rmf24.pl/fakty/feed";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
