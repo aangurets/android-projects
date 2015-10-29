@@ -7,18 +7,20 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import by.aangurets.rssreader.model.Item;
+
 /**
  * Created by aangurets on 29-Oct-15.
  */
 public class XMLRarsing {
 
-    private XmlPullParserFactory mXmlFactoryObject;
+    public static void parseXmlAndCreateNewItem(XmlPullParser xmlPullParser) {
+        Item mItem = new Item();
 
-    public void parseXmlAndCreateNewItem(XmlPullParser xmlPullParser) {
 
     }
 
-    public void getXML(final String url) {
+    public static void getXML(final String url) {
         Thread mThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -34,7 +36,7 @@ public class XMLRarsing {
                     mConnection.connect();
                     InputStream mStream = mConnection.getInputStream();
 
-                    mXmlFactoryObject = XmlPullParserFactory.newInstance();
+                    XmlPullParserFactory mXmlFactoryObject = XmlPullParserFactory.newInstance();
                     XmlPullParser mParser = mXmlFactoryObject.newPullParser();
 
                     mParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
