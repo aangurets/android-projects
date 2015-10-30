@@ -29,7 +29,7 @@ public class XMLParsing {
 
             while (mEvent != XmlPullParser.END_DOCUMENT) {
                 String mName = xmlPullParser.getName();
-                Log.d(Constants.LOG_TAG, "mName = " + mName);
+//                Log.d(Constants.LOG_TAG, "mName = " + mName);
 
                 switch (mEvent) {
                     case XmlPullParser.START_TAG:
@@ -56,10 +56,10 @@ public class XMLParsing {
                         } else if (mName.equals("category")) {
                             mItem.setmCategory(mText);
                         }
-                        ItemsStorage.getInstance().addItem(mItem);
                         break;
                 }
                 mEvent = xmlPullParser.next();
+                ItemsStorage.getInstance().addItem(mItem);
             }
         } catch (Exception e) {
             e.printStackTrace();
