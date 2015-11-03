@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import android.net.URI;
+//import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
@@ -40,34 +40,34 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View mView = convertView;
         ViewHolder mHolder;
-        URI mUri = null;
+//        URI mUri = null;
 
         if (mView == null) {
             mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
             mHolder = new ViewHolder();
             mHolder.mTitle = (TextView) mView.findViewById(R.id.itemTitle);
             mHolder.mDate = (TextView) mView.findViewById(R.id.itemTitle);
-            mHolder.mImage = (ImageView) mView.findViewById(R.id.itemImage);
+//            mHolder.mImage = (ImageView) mView.findViewById(R.id.itemImage);
             mView.setTag(mHolder);
         } else {
             mHolder = (ViewHolder) mView.getTag();
         }
 
-        try {
-           mUri  = new URI(getItem(position).getmImageLink());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+//        try {
+//           mUri  = new URI(getItem(position).getmImageLink());
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
         mHolder.mTitle.setText(getItem(position).getmTitle());
         mHolder.mDate.setText(getItem(position).getmPubDate());
-        mHolder.mImage.setImageURI(mUri);
+//        mHolder.mImage.setImageURI(mUri);
 
-        return super.getView(position, convertView, parent);
+        return mView;
     }
 
     static class ViewHolder {
         public TextView mTitle;
         public TextView mDate;
-        public ImageView mImage;
+//        public ImageView mImage;
     }
 }
