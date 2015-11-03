@@ -1,6 +1,5 @@
 package by.example.bookstore;
 
-import android.app.FragmentTransaction;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
