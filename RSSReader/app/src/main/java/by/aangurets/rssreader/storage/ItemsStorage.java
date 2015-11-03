@@ -1,11 +1,13 @@
 package by.aangurets.rssreader.storage;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import by.aangurets.rssreader.Constants;
+import by.aangurets.rssreader.ReaderActivity;
 import by.aangurets.rssreader.model.Item;
 
 /**
