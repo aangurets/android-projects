@@ -5,11 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 //import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 
 import by.aangurets.rssreader.R;
@@ -46,7 +44,7 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
             mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
             mHolder = new ViewHolder();
             mHolder.mTitle = (TextView) mView.findViewById(R.id.itemTitle);
-            mHolder.mDate = (TextView) mView.findViewById(R.id.itemTitle);
+            mHolder.mDate = (TextView) mView.findViewById(R.id.itemDate);
 //            mHolder.mImage = (ImageView) mView.findViewById(R.id.itemImage);
             mView.setTag(mHolder);
         } else {
