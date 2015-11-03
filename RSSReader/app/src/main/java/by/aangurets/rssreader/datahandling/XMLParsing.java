@@ -20,7 +20,7 @@ public class XMLParsing {
 
     public static void parseXmlAndCreateNewItem(XmlPullParser xmlPullParser) {
         Log.d(Constants.LOG_TAG, "parseXmlAndCreateNewItem");
-        Item mItem = new Item();
+
         String mText = null;
         int mEvent;
 
