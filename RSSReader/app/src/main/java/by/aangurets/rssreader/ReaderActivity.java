@@ -146,8 +146,7 @@ public class ReaderActivity extends AppCompatActivity
 
         @Override
         public List<Item> loadInBackground() {
-            XMLParsing.getXML(Constants.FAKTY_URL);
-            return ItemsStorage.getInstance().getItems();
+            return XMLParsing.getXML(Constants.FAKTY_URL);
         }
 
         @Override

@@ -31,7 +31,7 @@ public class ItemsStorage {
 
     public void addItem(Item item) {
         mItems.add(item);
-        Log.d(Constants.LOG_TAG, "addItem " + item);
+        Log.d(Constants.LOG_TAG, "addItem " + item + ", Items.size = " + mItems.size());
     }
 
     public Item getItem(int position) {
@@ -41,10 +41,10 @@ public class ItemsStorage {
 
     public List<Item> getItems() {
         Log.d(Constants.LOG_TAG, "getItems");
-        if (!mItems.isEmpty()) {
-            return mItems;
-        } else {
-            throw new IllegalArgumentException("Items list empty");
-        }
+//        if (!mItems.isEmpty()) {
+        return mItems;
+//        } else {
+//            Log.d(Constants.LOG_TAG, "mItems.size = " + mItems.size());
+//            throw new IllegalArgumentException("Items list empty");
     }
 }

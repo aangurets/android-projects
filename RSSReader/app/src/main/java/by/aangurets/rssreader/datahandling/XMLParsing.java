@@ -8,6 +8,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 import by.aangurets.rssreader.Constants;
 import by.aangurets.rssreader.model.Item;
@@ -70,7 +71,7 @@ public class XMLParsing {
 
     }
 
-    public static void getXML(final String url) {
+    public static List<Item> getXML(final String url) {
         Thread mThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -100,5 +101,6 @@ public class XMLParsing {
             }
         });
         mThread.start();
+        return ItemsStorage.getInstance().getItems();
     }
 }
