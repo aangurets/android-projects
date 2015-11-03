@@ -41,20 +41,22 @@ public class XMLParsing {
 
                     case XmlPullParser.END_TAG:
 
-                        if (mName.equals("title")) {
-                            mItem.setmTitle(mText);
-                        } else if (mName.equals("description")) {
-                            mItem.setmDescription(mText);
-                        } else if (mName.equals("link")) {
-                            mItem.setmLink(mText);
-                        } else if (mName.equals("guid")) {
-                            mItem.setmGuid(mText);
-                        } else if (mName.equals("pubDate")) {
-                            mItem.setmPubDate(mText);
-                        } else if (mName.equals("enclosure")) {
-                            mItem.setmImageLink(mText);
-                        } else if (mName.equals("category")) {
-                            mItem.setmCategory(mText);
+                        if (mName != null) {
+                            if (mName.equals("title")) {
+                                mItem.setmTitle(mText);
+                            } else if (mName.equals("description")) {
+                                mItem.setmDescription(mText);
+                            } else if (mName.equals("link")) {
+                                mItem.setmLink(mText);
+                            } else if (mName.equals("guid")) {
+                                mItem.setmGuid(mText);
+                            } else if (mName.equals("pubDate")) {
+                                mItem.setmPubDate(mText);
+                            } else if (mName.equals("enclosure")) {
+                                mItem.setmImageLink(mText);
+                            } else if (mName.equals("category")) {
+                                mItem.setmCategory(mText);
+                            }
                         }
                         break;
                 }
