@@ -11,10 +11,10 @@ import java.util.Locale;
 public class DataFormatter {
 
     public static String formattingDate(String date) throws ParseException {
-        SimpleDateFormat mFormat = new SimpleDateFormat("EEE, dd MMM yyyy hh:mm:ss Z", Locale.getDefault());
+        SimpleDateFormat mFormat = new SimpleDateFormat("EEE, dd MMM yyyy hh:mm:ss Z");
         Date mNewDate = mFormat.parse(date);
 
-        mFormat = new SimpleDateFormat("EEE, dd MMM yyyy hh:mm", Locale.getDefault());
+        mFormat = new SimpleDateFormat("hh:mm, MMM dd, yyyy", new Locale("pl", "PL"));
         return mFormat.format(mNewDate);
     }
 }
