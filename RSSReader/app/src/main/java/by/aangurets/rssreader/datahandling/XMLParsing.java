@@ -8,8 +8,6 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 
 import by.aangurets.rssreader.Constants;
@@ -36,11 +34,19 @@ public class XMLParsing {
 //                Log.d(Constants.LOG_TAG, "mName = " + mName);
 
                 switch (mEvent) {
+                    case XmlPullParser.START_DOCUMENT:
+                        Log.d(Constants.LOG_TAG, "START_DOCUMENT");
+                        break;
+
                     case XmlPullParser.START_TAG:
+                        Log.d(Constants.LOG_TAG, "START_TAG: name = " + xmlPullParser.getName()
+                                + ", depth = " + xmlPullParser.getDepth() + ", attrCount = "
+                                + xmlPullParser.getAttributeCount());
                         break;
 
                     case XmlPullParser.TEXT:
                         mText = xmlPullParser.getText();
+                        Log.d(Constants.LOG_TAG, "TEXT");
                         break;
 
                     case XmlPullParser.END_TAG:
