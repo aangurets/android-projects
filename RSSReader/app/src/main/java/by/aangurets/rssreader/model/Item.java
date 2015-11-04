@@ -1,5 +1,6 @@
 package by.aangurets.rssreader.model;
 
+import java.text.ParseException;
 import java.util.Date;
 
 /**
@@ -52,7 +53,11 @@ public class Item {
     }
 
     public void setmPubDate(String mPubDate) {
-        this.mPubDate = mPubDate;
+        try {
+            this.mPubDate = DataFormatter.formattingDate(mPubDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getmImageLink() {
