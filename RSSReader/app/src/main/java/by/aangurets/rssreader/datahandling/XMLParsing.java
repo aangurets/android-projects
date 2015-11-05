@@ -31,8 +31,6 @@ public class XMLParsing {
             while (mEvent != XmlPullParser.END_DOCUMENT) {
                 String mName = xmlPullParser.getName();
 
-//                Log.d(Constants.LOG_TAG, "mName = " + mName);
-
                 switch (mEvent) {
                     case XmlPullParser.START_DOCUMENT:
 //                        Log.d(Constants.LOG_TAG, "START_DOCUMENT");
@@ -51,7 +49,9 @@ public class XMLParsing {
 
                     case XmlPullParser.END_TAG:
 
-                        if (mName.equals("title")) {
+                        if (mName.equals("item")) {
+                            mItem = new Item();
+                        } else if (mName.equals("title")) {
                             mItem.setmTitle(mText);
                         } else if (mName.equals("description")) {
                             mItem.setmDescription(mText);
@@ -70,7 +70,6 @@ public class XMLParsing {
                         break;
                 }
                 mEvent = xmlPullParser.next();
-//                ItemsStorage.getInstance().addItem(mItem);
             }
         } catch (Exception e) {
             e.printStackTrace();
