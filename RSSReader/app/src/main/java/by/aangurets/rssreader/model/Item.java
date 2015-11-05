@@ -79,13 +79,13 @@ public class Item {
     @Override
     public String toString() {
         return "Item: " +
-                " Title = " + mTitle + '\'' +
-                ", Description = " + mDescription + '\'' +
-                ", Link = " + mLink + '\'' +
-                ", Guid = " + mGuid + '\'' +
-                ", PubDate = " + mPubDate + '\'' +
-                ", ImageLink = " + mImageLink + '\'' +
-                ", Category = " + mCategory + '\'' +
+                " Title = " + mTitle +
+                "; Description = " + mDescription +
+                "; Link = " + mLink +
+                "; Guid = " + mGuid +
+                "; PubDate = " + mPubDate +
+                "; ImageLink = " + mImageLink +
+                "; Category = " + mCategory +
                 '}';
     }
 }

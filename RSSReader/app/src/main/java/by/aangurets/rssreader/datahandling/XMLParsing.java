@@ -30,7 +30,7 @@ public class XMLParsing {
 
             while (mEvent != XmlPullParser.END_DOCUMENT) {
                 String mName = xmlPullParser.getName();
-                Log.d(Constants.LOG_TAG, "mName = " + mName);
+//                Log.d(Constants.LOG_TAG, "mName = " + mName);
 
                 switch (mEvent) {
                     case XmlPullParser.START_DOCUMENT:
@@ -49,7 +49,6 @@ public class XMLParsing {
                         break;
 
                     case XmlPullParser.END_TAG:
-
                         if (mName.equals("item")) {
                             mItem = new Item();
                         } else if (mName.equals("title")) {
@@ -63,8 +62,7 @@ public class XMLParsing {
                         } else if (mName.equals("pubDate")) {
                             mItem.setmPubDate(mText);
                         } else if (mName.equals("enclosure")) {
-                            Log.d(Constants.LOG_TAG, "Image link = " + mName);
-                            mItem.setmImageLink(mText);
+                            mItem.setmImageLink(xmlPullParser.getAttributeValue(null, "url"));
                         } else if (mName.equals("category")) {
                             mItem.setmCategory(mText);
                             ItemsStorage.getInstance().addItem(mItem);
