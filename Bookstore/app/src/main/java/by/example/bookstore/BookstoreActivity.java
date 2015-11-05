@@ -160,9 +160,9 @@ public class BookstoreActivity extends AppCompatActivity
             ft.replace(R.id.bookstore_fragment_id_in_activity, mFavoriteBooksFragment);
             ft.commit();
         } else if (deviceType.equals("phone")) {*/
-            Intent intent = new Intent(this, FavoriteBooksActivity.class);
-            startActivity(intent);
- //       }
+        Intent intent = new Intent(this, FavoriteBooksActivity.class);
+        startActivity(intent);
+        //       }
     }
 
     private void updateList() {
