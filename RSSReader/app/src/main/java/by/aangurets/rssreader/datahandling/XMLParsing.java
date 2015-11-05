@@ -22,7 +22,6 @@ public class XMLParsing {
     public static void parseXmlAndCreateNewItem(XmlPullParser xmlPullParser) {
         Log.d(Constants.LOG_TAG, "parseXmlAndCreateNewItem");
         Item mItem = new Item();
-
         String mText = null;
         int mEvent;
 
@@ -31,47 +30,47 @@ public class XMLParsing {
 
             while (mEvent != XmlPullParser.END_DOCUMENT) {
                 String mName = xmlPullParser.getName();
+
 //                Log.d(Constants.LOG_TAG, "mName = " + mName);
 
                 switch (mEvent) {
                     case XmlPullParser.START_DOCUMENT:
-                        Log.d(Constants.LOG_TAG, "START_DOCUMENT");
+//                        Log.d(Constants.LOG_TAG, "START_DOCUMENT");
                         break;
 
                     case XmlPullParser.START_TAG:
-                        Log.d(Constants.LOG_TAG, "START_TAG: name = " + xmlPullParser.getName()
-                                + ", depth = " + xmlPullParser.getDepth() + ", attrCount = "
-                                + xmlPullParser.getAttributeCount());
+//                        Log.d(Constants.LOG_TAG, "START_TAG: name = " + xmlPullParser.getName()
+//                                + ", depth = " + xmlPullParser.getDepth() + ", attrCount = "
+//                                + xmlPullParser.getAttributeCount());
                         break;
 
                     case XmlPullParser.TEXT:
                         mText = xmlPullParser.getText();
-                        Log.d(Constants.LOG_TAG, "TEXT");
+//                        Log.d(Constants.LOG_TAG, "TEXT");
                         break;
 
                     case XmlPullParser.END_TAG:
 
-                        if (mName != null) {
-                            if (mName.equals("title")) {
-                                mItem.setmTitle(mText);
-                            } else if (mName.equals("description")) {
-                                mItem.setmDescription(mText);
-                            } else if (mName.equals("link")) {
-                                mItem.setmLink(mText);
-                            } else if (mName.equals("guid")) {
-                                mItem.setmGuid(mText);
-                            } else if (mName.equals("pubDate")) {
-                                mItem.setmPubDate(mText);
-                            } else if (mName.equals("enclosure")) {
-                                mItem.setmImageLink(mText);
-                            } else if (mName.equals("category")) {
-                                mItem.setmCategory(mText);
-                            }
+                        if (mName.equals("title")) {
+                            mItem.setmTitle(mText);
+                        } else if (mName.equals("description")) {
+                            mItem.setmDescription(mText);
+                        } else if (mName.equals("link")) {
+                            mItem.setmLink(mText);
+                        } else if (mName.equals("guid")) {
+                            mItem.setmGuid(mText);
+                        } else if (mName.equals("pubDate")) {
+                            mItem.setmPubDate(mText);
+                        } else if (mName.equals("enclosure")) {
+                            mItem.setmImageLink(mText);
+                        } else if (mName.equals("category")) {
+                            mItem.setmCategory(mText);
+                            ItemsStorage.getInstance().addItem(mItem);
                         }
                         break;
                 }
                 mEvent = xmlPullParser.next();
-                ItemsStorage.getInstance().addItem(mItem);
+//                ItemsStorage.getInstance().addItem(mItem);
             }
         } catch (Exception e) {
             e.printStackTrace();
