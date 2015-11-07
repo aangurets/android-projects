@@ -1,7 +1,6 @@
 package by.aangurets.rssreader.model;
 
 import java.text.ParseException;
-import java.util.Date;
 
 /**
  * Created by andrei.angurets on 28/10/2015.

@@ -10,10 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-//import java.net.URI;
 import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.nio.charset.MalformedInputException;
 import java.util.List;
 
 import by.aangurets.rssreader.R;
