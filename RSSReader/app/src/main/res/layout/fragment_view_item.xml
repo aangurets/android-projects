@@ -9,7 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/brak_obrazy" />
+        android:contentDescription="@string/item_image_description"
+        android:maxHeight="30dp"
+        android:maxWidth="100dp" />
 
     <TextView
         android:id="@+id/titleInViewItem"
@@ -23,7 +25,7 @@
         android:id="@+id/dateInViewItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="left"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
