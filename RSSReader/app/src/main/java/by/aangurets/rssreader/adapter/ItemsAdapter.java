@@ -54,15 +54,15 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
             mHolder = (ViewHolder) mView.getTag();
         }
 
-        try {
-            InputStream is = new java.net.URL(getItem(position).getmImageLink()).openStream();
-            mImage = BitmapFactory.decodeStream(is);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            InputStream is = new java.net.URL(getItem(position).getmImageLink()).openStream();
+//            mImage = BitmapFactory.decodeStream(is);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         mHolder.mTitle.setText(getItem(position).getmTitle());
         mHolder.mDate.setText(getItem(position).getmPubDate());
-        mHolder.mImage.setImageBitmap(mImage);
+//        mHolder.mImage.setImageBitmap(mImage);
 
         return mView;
     }
