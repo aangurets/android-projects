@@ -2,6 +2,7 @@ package by.aangurets.rssreader;
 
 import android.app.LoaderManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.Loader;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.List;
@@ -23,7 +25,6 @@ import by.aangurets.rssreader.adapter.ItemsAdapter;
 import by.aangurets.rssreader.datahandling.XMLParsing;
 import by.aangurets.rssreader.loader.AbstractLoader;
 import by.aangurets.rssreader.model.Item;
-import by.aangurets.rssreader.storage.ItemsStorage;
 
 public class ReaderActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -44,6 +45,14 @@ public class ReaderActivity extends AppCompatActivity
 
         mItemsListView = (ListView) mFragment;
 
+        mItemsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent mIntent = new Intent(ReaderActivity.this, ViewItemActivity.class);
+                mIntent.putExtra(Constants.ITEM_POSITION, position);
+                startActivity(mIntent);
+            }
+        });
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
