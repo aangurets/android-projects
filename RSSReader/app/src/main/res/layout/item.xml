@@ -9,9 +9,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/itemDate"
         android:layout_alignParentTop="true"
+        android:contentDescription="@string/item_image_description"
         android:maxHeight="30dp"
         android:maxWidth="40dp"
-        android:contentDescription="@string/item_image_description"
         android:src="@drawable/brak_obrazy" />
 
     <TextView
