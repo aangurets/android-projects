@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="100dp">
 
     <ImageView
         android:id="@+id/itemImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="93dp"
+        android:layout_height="93dp"
         android:layout_alignBottom="@+id/itemDate"
         android:layout_alignParentTop="true"
         android:contentDescription="@string/item_image_description"
@@ -19,8 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/itemImage"
-        android:layout_toRightOf="@+id/itemImage"
+        android:layout_toRightOf="@id/itemImage"
+        android:maxHeight="70dp"
         android:paddingEnd="@dimen/item_in_list_right_padding"
         android:paddingLeft="@dimen/item_in_list_left_padding"
         android:paddingRight="@dimen/item_in_list_right_padding"
@@ -33,9 +33,9 @@
         android:id="@+id/itemDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/itemTitle"
-        android:layout_toEndOf="@+id/itemImage"
-        android:layout_toRightOf="@+id/itemImage"
+        android:layout_below="@id/itemTitle"
+        android:layout_toEndOf="@id/itemImage"
+        android:layout_toRightOf="@id/itemImage"
         android:paddingBottom="@dimen/item_in_list_bottom_padding"
         android:paddingEnd="@dimen/item_in_list_right_padding"
         android:paddingLeft="@dimen/item_in_list_left_padding"
