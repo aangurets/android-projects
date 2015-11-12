@@ -5,7 +5,7 @@ import java.text.ParseException;
 /**
  * Created by andrei.angurets on 28/10/2015.
  */
-public class Item {
+class Item {
 
     private String mTitle;
     private String mDescription;
