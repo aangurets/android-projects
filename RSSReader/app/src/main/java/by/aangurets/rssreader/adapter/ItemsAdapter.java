@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
+import com.androidquery.callback.ImageOptions;
 
 import java.util.List;
 
@@ -53,7 +54,10 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
 
         mHolder.mTitle.setText(getItem(position).getmTitle());
         mHolder.mDate.setText(getItem(position).getmPubDate());
-        aQuery.id(R.id.itemImage).image(getItem(position).getmImageLink());
+
+        ImageOptions mImageOptions = new ImageOptions();
+        mImageOptions.round = 50;
+        aQuery.id(R.id.itemImage).image(getItem(position).getmImageLink(), mImageOptions);
         return mView;
     }
 
