@@ -60,9 +60,8 @@ public class ViewItemActivity extends Activity {
 
         @Override
         public Drawable getDrawable(String source) {
-            Drawable mBitmap = new BitmapDrawable(mAquery.getCachedImage(source));
+            Drawable mBitmap = new BitmapDrawable(getResources(), mAquery.getCachedImage(source));
             mAquery.id(R.id.imageInViewItem).image(source);
-//            mBitmap.setBounds(0, 0, mBitmap.getIntrinsicWidth(), mBitmap.getIntrinsicHeight());
             return mBitmap;
         }
     }
