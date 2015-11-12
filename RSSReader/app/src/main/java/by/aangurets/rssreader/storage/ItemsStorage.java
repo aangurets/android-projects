@@ -29,7 +29,7 @@ public class ItemsStorage {
 
     public void addItem(Item item) {
         mItems.add(item);
-//        Log.d(Constants.LOG_TAG, "addItem " + item + ", Items.size = " + mItems.size());
+        Log.d(Constants.LOG_TAG, "addItem " + item + ", Items.size = " + mItems.size());
     }
 
     public Item getItem(int position) {
