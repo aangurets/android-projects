@@ -2,6 +2,9 @@ package by.aangurets.rssreader;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.widget.TextView;
@@ -46,11 +49,21 @@ public class ViewItemActivity extends Activity {
     }
 
     private void completeData(Item item) {
-        mAquery.id(R.id.imageInViewItem).image(item.getmImageLink());
         mTitle.setText(item.getmTitle());
         mDate.setText(item.getmPubDate());
 
         // TODO: ImageGetter (getting image from HTML text)
-        mDescription.setText(Html.fromHtml(item.getmDescription()));
+        mDescription.setText(Html.fromHtml(item.getmDescription(), new ImageGetter(), null));
+    }
+
+    private class ImageGetter implements Html.ImageGetter {
+
+        @Override
+        public Drawable getDrawable(String source) {
+            Drawable mBitmap = new BitmapDrawable(mAquery.getCachedImage(source));
+            mAquery.id(R.id.imageInViewItem).image(source);
+//            mBitmap.setBounds(0, 0, mBitmap.getIntrinsicWidth(), mBitmap.getIntrinsicHeight());
+            return mBitmap;
+        }
     }
 }
