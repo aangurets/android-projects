@@ -9,4 +9,7 @@
 
     <dimen name="item_title_in_list_bottom_padding">2dp</dimen>
     <dimen name="item_title_and_date_in_list_left_padding">3dp</dimen>
+
+    <dimen name="items_padding_in_view_item">5dp</dimen>
+
 </resources>

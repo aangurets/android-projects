@@ -19,15 +19,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Large Text"
+        android:paddingLeft="@dimen/items_padding_in_view_item"
+        android:paddingTop="@dimen/items_padding_in_view_item"
+        android:paddingRight="@dimen/items_padding_in_view_item"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/dateInViewItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Small Text"
+        android:paddingLeft="@dimen/items_padding_in_view_item"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
@@ -35,6 +36,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:paddingLeft="@dimen/items_padding_in_view_item"
+        android:paddingBottom="@dimen/items_padding_in_view_item"
+        android:paddingRight="@dimen/items_padding_in_view_item"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 </LinearLayout>
