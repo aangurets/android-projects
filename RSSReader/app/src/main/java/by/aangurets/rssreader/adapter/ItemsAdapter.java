@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
@@ -47,6 +48,7 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
             mHolder = new ViewHolder();
             mHolder.mTitle = (TextView) mView.findViewById(R.id.itemTitle);
             mHolder.mDate = (TextView) mView.findViewById(R.id.itemDate);
+            mHolder.mImage = (ImageView) mView.findViewById(R.id.itemImage);
             mView.setTag(mHolder);
         } else {
             mHolder = (ViewHolder) mView.getTag();
@@ -54,15 +56,18 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
 
         mHolder.mTitle.setText(getItem(position).getmTitle());
         mHolder.mDate.setText(getItem(position).getmPubDate());
+        mHolder.mImage.setImageBitmap(getItem(position).getmImage());
 
-        ImageOptions mImageOptions = new ImageOptions();
-        mImageOptions.round = 50;
-        aQuery.id(R.id.itemImage).image(getItem(position).getmImageLink(), mImageOptions);
+//        ImageOptions mImageOptions = new ImageOptions();
+//        mImageOptions.round = 50;
+//        aQuery.id(R.id.itemImage).image(getItem(position).getmImageLink(), mImageOptions);
+//        aQuery.id(R.id.itemImage).image(getItem(position).getmImageLink(), mImageOptions);
         return mView;
     }
 
     static class ViewHolder {
         public TextView mTitle;
         public TextView mDate;
+        public ImageView mImage;
     }
 }
