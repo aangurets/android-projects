@@ -1,5 +1,7 @@
 package by.aangurets.rssreader.model;
 
+import android.graphics.Bitmap;
+
 import java.text.ParseException;
 
 /**
@@ -13,6 +15,7 @@ public class Item {
     private String mGuid;
     private String mPubDate;
     private String mImageLink;
+    private Bitmap mImage;
     private String mCategory;
 
     public String getmTitle() {
@@ -65,6 +68,14 @@ public class Item {
 
     public void setmImageLink(String mImageLink) {
         this.mImageLink = mImageLink;
+    }
+
+    public Bitmap getmImage() {
+        return mImage;
+    }
+
+    public void setmImage(Bitmap mImage) {
+        this.mImage = mImage;
     }
 
     public String getmCategory() {
