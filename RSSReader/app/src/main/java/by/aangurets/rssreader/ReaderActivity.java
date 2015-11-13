@@ -158,6 +158,7 @@ public class ReaderActivity extends AppCompatActivity
             return XMLParsing.getXML(Constants.FAKTY_URL);
         }
 
+
         @Override
         protected void freeResource(List<Item> data) {
 
