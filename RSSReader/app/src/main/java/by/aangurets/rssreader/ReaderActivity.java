@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import java.util.List;
@@ -132,6 +133,10 @@ public class ReaderActivity extends AppCompatActivity
         return true;
     }
 
+    private void updateList() {
+        ((ItemsAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
+    }
+
     @Override
     public Loader<List<Item>> onCreateLoader(int id, Bundle args) {
         return new ItemsLoader(this);
@@ -158,6 +163,10 @@ public class ReaderActivity extends AppCompatActivity
             return XMLParsing.getXML(Constants.FAKTY_URL);
         }
 
+        @Override
+        protected void onStartLoading() {
+            super.onStartLoading();
+        }
 
         @Override
         protected void freeResource(List<Item> data) {
