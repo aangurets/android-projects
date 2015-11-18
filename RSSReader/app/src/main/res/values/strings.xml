@@ -6,4 +6,6 @@
 
     <string name="action_settings">Settings</string>
     <string name="item_image_description">Obraz</string>
+    <string name="name">RMF FM</string>
+    <string name="link">http://www.rmf.fm/</string>
 </resources>
