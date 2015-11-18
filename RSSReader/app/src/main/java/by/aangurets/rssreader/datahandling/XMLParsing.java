@@ -79,7 +79,7 @@ public class XMLParsing {
 
     }
 
-    public static List<Item> getXML(final String url) {
+    public List<Item> getXML(final String url) {
         Thread mThread = new Thread(new Runnable() {
             @Override
             public void run() {
