@@ -7,6 +7,7 @@ import android.content.Loader;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,16 +21,20 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import by.aangurets.rssreader.adapter.ItemsAdapter;
 import by.aangurets.rssreader.datahandling.XMLParsing;
 import by.aangurets.rssreader.loader.AbstractLoader;
 import by.aangurets.rssreader.model.Item;
+import by.aangurets.rssreader.storage.ItemsStorage;
 
 public class ReaderActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         LoaderManager.LoaderCallbacks<List<Item>> {
+
+    public static final int LOADER_ID = 1;
 
     private ListView mItemsListView;
 
@@ -49,6 +54,7 @@ public class ReaderActivity extends AppCompatActivity
         mItemsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                updateList();
                 Intent mIntent = new Intent(ReaderActivity.this, ViewItemActivity.class);
                 mIntent.putExtra(Constants.ITEM_POSITION, position);
                 startActivity(mIntent);
@@ -73,11 +79,19 @@ public class ReaderActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        getLoaderManager().initLoader(1, null, this);
+        mItemsListView.setAdapter(new ItemsAdapter(this, new ArrayList<Item>()));
+        getLoaderManager().initLoader(LOADER_ID, null, this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateList();
     }
 
     @Override
     public void onBackPressed() {
+        updateList();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -133,8 +147,14 @@ public class ReaderActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        updateList();
+    }
+
     private void updateList() {
-        ((ItemsAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
+        ((BaseAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
     }
 
     @Override
@@ -145,11 +165,12 @@ public class ReaderActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<List<Item>> loader, List<Item> data) {
         mItemsListView.setAdapter(new ItemsAdapter(this, data));
+        updateList();
     }
 
     @Override
     public void onLoaderReset(Loader<List<Item>> loader) {
-
+//        ItemsStorage.getInstance().cleaningStorage();
     }
 
     private static class ItemsLoader extends AbstractLoader<List<Item>> {
@@ -160,7 +181,7 @@ public class ReaderActivity extends AppCompatActivity
 
         @Override
         public List<Item> loadInBackground() {
-            return XMLParsing.getXML(Constants.FAKTY_URL);
+            return new XMLParsing().getXML(Constants.FAKTY_URL);
         }
 
         @Override
