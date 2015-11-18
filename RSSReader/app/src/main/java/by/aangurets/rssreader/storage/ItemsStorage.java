@@ -14,10 +14,10 @@ import by.aangurets.rssreader.model.Item;
 public class ItemsStorage {
 
     public static ItemsStorage sItemsStorage;
-    private List<Item> mItems;
+    private static List<Item> sItems;
 
     public ItemsStorage() {
-        mItems = new ArrayList<>();
+        sItems = new ArrayList<>();
     }
 
     public static ItemsStorage getInstance() {
@@ -27,18 +27,23 @@ public class ItemsStorage {
         return sItemsStorage;
     }
 
-    public void addItem(Item item) {
-        mItems.add(item);
-        Log.d(Constants.LOG_TAG, "addItem " + item + ", Items.size = " + mItems.size());
+    public static void addItem(Item item) {
+        sItems.add(item);
+        Log.d(Constants.LOG_TAG, "addItem " + item + ", Items.size = " + sItems.size());
     }
 
-    public Item getItem(int position) {
-//        Log.d(Constants.LOG_TAG, "getItem " + mItems.get(position));
-        return mItems.get(position);
+    public static Item getItem(int position) {
+//        Log.d(Constants.LOG_TAG, "getItem " + sItems.get(position));
+        return sItems.get(position);
     }
 
-    public List<Item> getItems() {
+    public static List<Item> getItems() {
 //        Log.d(Constants.LOG_TAG, "getItems");
-        return mItems;
+        return sItems;
+    }
+
+    public static void cleaningStorage() {
+        Log.d(Constants.LOG_TAG, "cleaningStorage");
+        sItems.clear();
     }
 }
