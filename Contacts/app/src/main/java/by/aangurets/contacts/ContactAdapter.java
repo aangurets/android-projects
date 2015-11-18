@@ -43,7 +43,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
 
         String mNameText = Constants.ID + getItem(position).getId() + " " + getItem(position).getName() +
                 " " + getItem(position).getSurname();
-        String mPhoneText = Constants.PHONE + getItem(position).gЬetPhone();
+        String mPhoneText = Constants.PHONE + getItem(position).getPhone();
 
         mNameTextView.setText(mNameText);
         mPhoneTextView.setText(mPhoneText);
