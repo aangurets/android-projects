@@ -41,7 +41,7 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View mView = convertView;
         ViewHolder mHolder;
-        AQuery aQuery = new AQuery(mView);
+//        AQuery aQuery = new AQuery(mView);
 
         if (mView == null) {
             mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
