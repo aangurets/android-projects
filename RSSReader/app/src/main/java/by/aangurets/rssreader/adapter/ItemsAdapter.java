@@ -28,6 +28,11 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
     }
 
     @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
+
+    @Override
     public Item getItem(int position) {
         return ItemsStorage.getInstance().getItem(position);
     }
