@@ -27,22 +27,22 @@ public class ItemsStorage {
         return sItemsStorage;
     }
 
-    public static void addItem(Item item) {
+    public void addItem(Item item) {
         sItems.add(item);
         Log.d(Constants.LOG_TAG, "addItem " + item + ", Items.size = " + sItems.size());
     }
 
-    public static Item getItem(int position) {
+    public Item getItem(int position) {
 //        Log.d(Constants.LOG_TAG, "getItem " + sItems.get(position));
         return sItems.get(position);
     }
 
-    public static List<Item> getItems() {
+    public List<Item> getItems() {
 //        Log.d(Constants.LOG_TAG, "getItems");
         return sItems;
     }
 
-    public static void cleaningStorage() {
+    public void cleaningStorage() {
         Log.d(Constants.LOG_TAG, "cleaningStorage");
         sItems.clear();
     }
