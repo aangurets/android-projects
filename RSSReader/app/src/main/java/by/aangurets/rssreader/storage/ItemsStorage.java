@@ -1,11 +1,14 @@
 package by.aangurets.rssreader.storage;
 
+import android.app.Activity;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import by.aangurets.rssreader.Constants;
+import by.aangurets.rssreader.ReaderActivity;
 import by.aangurets.rssreader.model.Item;
 
 /**
@@ -30,6 +33,7 @@ public class ItemsStorage {
     public void addItem(Item item) {
         sItems.add(item);
         Log.d(Constants.LOG_TAG, "addItem " + item + ", Items.size = " + sItems.size());
+        new ReaderActivity().updateList();
     }
 
     public Item getItem(int position) {
@@ -38,7 +42,7 @@ public class ItemsStorage {
     }
 
     public List<Item> getItems() {
-//        Log.d(Constants.LOG_TAG, "getItems");
+        Log.d(Constants.LOG_TAG, "getItems. Amount = " + sItems.size());
         return sItems;
     }
 

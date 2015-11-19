@@ -1,10 +1,12 @@
 package by.aangurets.rssreader;
 
+import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -18,7 +20,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -37,12 +38,16 @@ public class ReaderActivity extends AppCompatActivity
     public static final int LOADER_ID = 1;
 
     private ListView mItemsListView;
+    private Activity mActivity = new Activity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(Constants.LOG_TAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reader);
+
+        ItemsStorage.getInstance().cleaningStorage();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -51,6 +56,8 @@ public class ReaderActivity extends AppCompatActivity
         View mFragment = mItemsListFragment.getView();
 
         mItemsListView = (ListView) mFragment;
+
+        getLoaderManager().initLoader(LOADER_ID, null, this);
 
         mItemsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -81,20 +88,17 @@ public class ReaderActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         mItemsListView.setAdapter(new ItemsAdapter(this, new ArrayList<Item>()));
-        getLoaderManager().initLoader(LOADER_ID, null, this);
     }
 
     @Override
     protected void onResume() {
         Log.d(Constants.LOG_TAG, "onResume");
         super.onResume();
-        updateList();
     }
 
     @Override
     public void onBackPressed() {
         Log.d(Constants.LOG_TAG, "onBackPressed");
-        updateList();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -114,7 +118,7 @@ public class ReaderActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // as you specify a parent mActivity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -154,12 +158,20 @@ public class ReaderActivity extends AppCompatActivity
     protected void onStop() {
         Log.d(Constants.LOG_TAG, "onStop");
         super.onStop();
-        updateList();
     }
 
-    private void updateList() {
-        Log.d(Constants.LOG_TAG, "updateList");
-        ((BaseAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
+    public void updateList() {
+        new Thread() {
+            public void run() {
+                mActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d(Constants.LOG_TAG, "updateList");
+                        ((ItemsAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
+                    }
+                });
+            }
+        }.start();
     }
 
     @Override
@@ -172,14 +184,12 @@ public class ReaderActivity extends AppCompatActivity
     public void onLoadFinished(Loader<List<Item>> loader, List<Item> data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
         mItemsListView.setAdapter(new ItemsAdapter(this, data));
-        updateList();
     }
 
     @Override
     public void onLoaderReset(Loader<List<Item>> loader) {
-        Log.d(Constants.LOG_TAG, "onLoaderReset");
-        ItemsStorage.getInstance().cleaningStorage();
-        updateList();
+//        Log.d(Constants.LOG_TAG, "onLoaderReset");
+//        ItemsStorage.getInstance().cleaningStorage();
     }
 
     private static class ItemsLoader extends AbstractLoader<List<Item>> {
@@ -191,8 +201,7 @@ public class ReaderActivity extends AppCompatActivity
         @Override
         public List<Item> loadInBackground() {
             Log.d(Constants.LOG_TAG, "loadInBackground");
-            new XMLParsing().getXML(Constants.FAKTY_URL);
-            return ItemsStorage.getInstance().getItems();
+            return new XMLParsing().getXML(Constants.FAKTY_URL);
         }
 
         @Override
