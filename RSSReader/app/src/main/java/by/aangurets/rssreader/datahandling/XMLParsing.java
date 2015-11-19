@@ -79,7 +79,7 @@ public class XMLParsing {
 
     }
 
-    public List<Item> getXML(final String url) {
+    public void getXML(final String url) {
         Thread mThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -109,6 +109,5 @@ public class XMLParsing {
             }
         });
         mThread.start();
-        return ItemsStorage.getInstance().getItems();
     }
 }
