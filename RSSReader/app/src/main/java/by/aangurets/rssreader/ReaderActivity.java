@@ -40,6 +40,7 @@ public class ReaderActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(Constants.LOG_TAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reader);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -85,12 +86,14 @@ public class ReaderActivity extends AppCompatActivity
 
     @Override
     protected void onResume() {
+        Log.d(Constants.LOG_TAG, "onResume");
         super.onResume();
         updateList();
     }
 
     @Override
     public void onBackPressed() {
+        Log.d(Constants.LOG_TAG, "onBackPressed");
         updateList();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -149,28 +152,34 @@ public class ReaderActivity extends AppCompatActivity
 
     @Override
     protected void onStop() {
+        Log.d(Constants.LOG_TAG, "onStop");
         super.onStop();
         updateList();
     }
 
     private void updateList() {
+        Log.d(Constants.LOG_TAG, "updateList");
         ((BaseAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
     }
 
     @Override
     public Loader<List<Item>> onCreateLoader(int id, Bundle args) {
+        Log.d(Constants.LOG_TAG, "onCreateLoader");
         return new ItemsLoader(this);
     }
 
     @Override
     public void onLoadFinished(Loader<List<Item>> loader, List<Item> data) {
+        Log.d(Constants.LOG_TAG, "onLoadFinished");
         mItemsListView.setAdapter(new ItemsAdapter(this, data));
         updateList();
     }
 
     @Override
     public void onLoaderReset(Loader<List<Item>> loader) {
-//        ItemsStorage.getInstance().cleaningStorage();
+        Log.d(Constants.LOG_TAG, "onLoaderReset");
+        ItemsStorage.getInstance().cleaningStorage();
+        updateList();
     }
 
     private static class ItemsLoader extends AbstractLoader<List<Item>> {
@@ -181,7 +190,9 @@ public class ReaderActivity extends AppCompatActivity
 
         @Override
         public List<Item> loadInBackground() {
-            return new XMLParsing().getXML(Constants.FAKTY_URL);
+            Log.d(Constants.LOG_TAG, "loadInBackground");
+            new XMLParsing().getXML(Constants.FAKTY_URL);
+            return ItemsStorage.getInstance().getItems();
         }
 
         @Override
