@@ -6,6 +6,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
@@ -29,8 +31,13 @@ public class ViewItemActivity extends Activity {
     @Bind(R.id.descriptionInViewItem)
     TextView mDescription;
 
+    @Bind(R.id.readCompletelyButton)
+    ImageButton mReadCompletelyImageButton;
+
     AQuery mAquery = new AQuery(this);
     int mItemPosition;
+
+    Item mSelectedItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +49,16 @@ public class ViewItemActivity extends Activity {
         Intent mIntent = getIntent();
         mItemPosition = mIntent.getIntExtra(Constants.ITEM_POSITION, 0);
 
-        Item mSelectedItem = ItemsStorage.getInstance().getItem(mItemPosition);
+        mSelectedItem = ItemsStorage.getInstance().getItem(mItemPosition);
+
+        mReadCompletelyImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(ViewItemActivity.this, ViewWebActivity.class);
+                mIntent.putExtra(Constants.URL, mSelectedItem.getmLink());
+                startActivity(mIntent);
+            }
+        });
 
         completeData(mSelectedItem);
     }
