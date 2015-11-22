@@ -34,6 +34,7 @@ public class ItemsStorage {
         sItems.add(item);
         Log.d(Constants.LOG_TAG, "addItem " + item + ", Items.size = " + sItems.size());
         new ReaderActivity().updateList();
+//        new ReaderActivity().mAdapter.notifyDataSetChanged();
     }
 
     public Item getItem(int position) {

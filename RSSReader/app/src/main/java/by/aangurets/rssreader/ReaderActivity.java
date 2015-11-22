@@ -5,7 +5,9 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Looper;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -39,6 +41,7 @@ public class ReaderActivity extends AppCompatActivity
 
     private ListView mItemsListView;
     private Activity mActivity = new Activity();
+    public ItemsAdapter mAdapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,8 @@ public class ReaderActivity extends AppCompatActivity
         setContentView(R.layout.activity_reader);
 
         ItemsStorage.getInstance().cleaningStorage();
+
+        mAdapter = new ItemsAdapter(this, new ArrayList<Item>());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -77,7 +82,6 @@ public class ReaderActivity extends AppCompatActivity
             }
         });
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -87,7 +91,7 @@ public class ReaderActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        mItemsListView.setAdapter(new ItemsAdapter(this, new ArrayList<Item>()));
+        mItemsListView.setAdapter(mAdapter);
     }
 
     @Override
@@ -161,17 +165,14 @@ public class ReaderActivity extends AppCompatActivity
     }
 
     public void updateList() {
-        new Thread() {
-            public void run() {
-                mActivity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.d(Constants.LOG_TAG, "updateList");
-                        ((ItemsAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
-                    }
-                });
-            }
-        }.start();
+//        mActivity.runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Log.d(Constants.LOG_TAG, "updateList");
+////                        ((ItemsAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
+//                mAdapter.notifyDataSetChanged();
+//            }
+//        });
     }
 
     @Override
@@ -183,7 +184,8 @@ public class ReaderActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<List<Item>> loader, List<Item> data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
-        mItemsListView.setAdapter(new ItemsAdapter(this, data));
+        mAdapter = new ItemsAdapter(this, data);
+        mItemsListView.setAdapter(mAdapter);
     }
 
     @Override
