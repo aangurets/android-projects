@@ -10,9 +10,9 @@
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/item_image_description"
-        android:scaleType="centerCrop"
         android:maxHeight="30dp"
-        android:maxWidth="100dp" />
+        android:maxWidth="100dp"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/titleInViewItem"
@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingLeft="@dimen/items_padding_in_view_item"
-        android:paddingTop="@dimen/items_padding_in_view_item"
         android:paddingRight="@dimen/items_padding_in_view_item"
+        android:paddingTop="@dimen/items_padding_in_view_item"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -36,9 +36,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:paddingLeft="@dimen/items_padding_in_view_item"
         android:paddingBottom="@dimen/items_padding_in_view_item"
+        android:paddingLeft="@dimen/items_padding_in_view_item"
         android:paddingRight="@dimen/items_padding_in_view_item"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageButton
+        android:id="@+id/readCompletelyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/czytaj_wiecej" />
 </LinearLayout>
