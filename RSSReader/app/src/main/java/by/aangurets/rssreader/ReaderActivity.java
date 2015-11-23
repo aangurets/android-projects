@@ -5,10 +5,8 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -164,15 +162,22 @@ public class ReaderActivity extends AppCompatActivity
         super.onStop();
     }
 
+    private Handler mHandler = new Handler();
+
     public void updateList() {
-//        mActivity.runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                Log.d(Constants.LOG_TAG, "updateList");
-////                        ((ItemsAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
-//                mAdapter.notifyDataSetChanged();
-//            }
-//        });
+        mActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d(Constants.LOG_TAG, "updateList");
+//                        ((ItemsAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
+                        mAdapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        });
     }
 
     @Override
@@ -210,6 +215,7 @@ public class ReaderActivity extends AppCompatActivity
         protected void onStartLoading() {
             super.onStartLoading();
         }
+
 
         @Override
         protected void freeResource(List<Item> data) {
