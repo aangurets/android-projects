@@ -162,20 +162,13 @@ public class ReaderActivity extends AppCompatActivity
         super.onStop();
     }
 
-    private Handler mHandler = new Handler();
-
     public void updateList() {
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                mHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.d(Constants.LOG_TAG, "updateList");
+                Log.d(Constants.LOG_TAG, "updateList");
 //                        ((ItemsAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
+                mAdapter.notifyDataSetChanged();
             }
         });
     }
