@@ -1,12 +1,10 @@
 package by.aangurets.rssreader;
 
-import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -38,7 +36,6 @@ public class ReaderActivity extends AppCompatActivity
     public static final int LOADER_ID = 1;
 
     private ListView mItemsListView;
-    private Activity mActivity = new Activity();
     public ItemsAdapter mAdapter = null;
 
     @Override
@@ -163,11 +160,11 @@ public class ReaderActivity extends AppCompatActivity
     }
 
     public void updateList() {
-        mActivity.runOnUiThread(new Runnable() {
+        this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 Log.d(Constants.LOG_TAG, "updateList");
-//                        ((ItemsAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
+//                ((ItemsAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
                 mAdapter.notifyDataSetChanged();
             }
         });
