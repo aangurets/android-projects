@@ -9,6 +9,7 @@ import java.text.ParseException;
  */
 public class Item {
 
+    private int mId;
     private String mTitle;
     private String mDescription;
     private String mLink;
@@ -18,43 +19,52 @@ public class Item {
     private Bitmap mImage;
     private String mCategory;
 
-    public String getmTitle() {
+    public int getId() {
+        return mId;
+    }
+
+    public void setId(int mId) {
+        this.mId = mId;
+    }
+
+    public String getTitle() {
         return mTitle;
     }
 
-    public void setmTitle(String mTitle) {
+    public void setTitle(String mTitle) {
         this.mTitle = mTitle;
     }
 
-    public String getmDescription() {
+    public String getDescription() {
         return mDescription;
     }
 
-    public void setmDescription(String mDescription) {
+    public void setDescription(String mDescription) {
         this.mDescription = mDescription;
     }
 
-    public String getmLink() {
+    public String getLink() {
         return mLink;
     }
 
-    public void setmLink(String mLink) {
+    public void setLink(String mLink) {
         this.mLink = mLink;
     }
 
-    public String getmGuid() {
+    public String getGuid() {
         return mGuid;
     }
 
-    public void setmGuid(String mGuid) {
+    public void setGuid(String mGuid) {
         this.mGuid = mGuid;
     }
 
-    public String getmPubDate() {
+    public String getPubDate() {
+
         return mPubDate;
     }
 
-    public void setmPubDate(String mPubDate) {
+    public void setPubDate(String mPubDate) {
         try {
             this.mPubDate = DataFormatter.formattingDate(mPubDate);
         } catch (ParseException e) {
@@ -62,27 +72,27 @@ public class Item {
         }
     }
 
-    public String getmImageLink() {
+    public String getImageLink() {
         return mImageLink;
     }
 
-    public void setmImageLink(String mImageLink) {
+    public void setImageLink(String mImageLink) {
         this.mImageLink = mImageLink;
     }
 
-    public Bitmap getmImage() {
+    public Bitmap getImage() {
         return mImage;
     }
 
-    public void setmImage(Bitmap mImage) {
+    public void setImage(Bitmap mImage) {
         this.mImage = mImage;
     }
 
-    public String getmCategory() {
+    public String getCategory() {
         return mCategory;
     }
 
-    public void setmCategory(String mCategory) {
+    public void setCategory(String mCategory) {
         this.mCategory = mCategory;
     }
 
