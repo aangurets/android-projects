@@ -55,7 +55,7 @@ public class ViewItemActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent mIntent = new Intent(ViewItemActivity.this, ViewWebActivity.class);
-                mIntent.putExtra(Constants.URL, mSelectedItem.getmLink());
+                mIntent.putExtra(Constants.URL, mSelectedItem.getLink());
                 startActivity(mIntent);
             }
         });
@@ -65,10 +65,10 @@ public class ViewItemActivity extends Activity {
 
     private void completeData(Item item) {
         mTitle.setText(item.getmTitle());
-        mDate.setText(item.getmPubDate());
+        mDate.setText(item.getPubDate());
 
         // TODO: ImageGetter (getting image from HTML text)
-        mDescription.setText(Html.fromHtml(item.getmDescription(), new ImageGetter(), null));
+        mDescription.setText(Html.fromHtml(item.getDescription(), new ImageGetter(), null));
     }
 
     private class ImageGetter implements Html.ImageGetter {

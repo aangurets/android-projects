@@ -52,21 +52,21 @@ public class XMLParsing {
                         if (mName.equals("item")) {
                             mItem = new Item();
                         } else if (mName.equals("title")) {
-                            mItem.setmTitle(mText);
+                            mItem.setTitle(mText);
                         } else if (mName.equals("description")) {
-                            mItem.setmDescription(mText);
+                            mItem.setDescription(mText);
                         } else if (mName.equals("link")) {
-                            mItem.setmLink(mText);
+                            mItem.setLink(mText);
                         } else if (mName.equals("guid")) {
-                            mItem.setmGuid(mText);
+                            mItem.setGuid(mText);
                         } else if (mName.equals("pubDate")) {
-                            mItem.setmPubDate(mText);
+                            mItem.setPubDate(mText);
                         } else if (mName.equals("enclosure")) {
                             String mImageUrl = xmlPullParser.getAttributeValue(null, "url");
-                            mItem.setmImageLink(mImageUrl);
-                            mItem.setmImage(ReceiverImage.getBitmapFromUrl(mImageUrl));
+                            mItem.setImageLink(mImageUrl);
+                            mItem.setImage(ReceiverImage.getBitmapFromUrl(mImageUrl));
                         } else if (mName.equals("category")) {
-                            mItem.setmCategory(mText);
+                            mItem.setCategory(mText);
                             ItemsStorage.getInstance().addItem(mItem);
                         }
                         break;

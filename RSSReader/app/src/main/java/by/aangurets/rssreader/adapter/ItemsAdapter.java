@@ -8,9 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.androidquery.AQuery;
-import com.androidquery.callback.ImageOptions;
-
 import java.util.List;
 
 import by.aangurets.rssreader.R;
@@ -60,13 +57,13 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
         }
 
         mHolder.mTitle.setText(getItem(position).getmTitle());
-        mHolder.mDate.setText(getItem(position).getmPubDate());
-        mHolder.mImage.setImageBitmap(getItem(position).getmImage());
+        mHolder.mDate.setText(getItem(position).getPubDate());
+        mHolder.mImage.setImageBitmap(getItem(position).getImage());
 
 //        ImageOptions mImageOptions = new ImageOptions();
 //        mImageOptions.round = 50;
-//        aQuery.id(R.id.itemImage).image(getItem(position).getmImageLink(), mImageOptions);
-//        aQuery.id(R.id.itemImage).image(getItem(position).getmImageLink(), mImageOptions);
+//        aQuery.id(R.id.itemImage).image(getItem(position).getImageLink(), mImageOptions);
+//        aQuery.id(R.id.itemImage).image(getItem(position).getImageLink(), mImageOptions);
         return mView;
     }
 

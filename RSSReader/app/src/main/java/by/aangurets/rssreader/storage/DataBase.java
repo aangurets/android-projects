@@ -76,12 +76,12 @@ public class DataBase {
         ContentValues contentValues = new ContentValues();
         contentValues.put(ID, item.getOccupation());
         contentValues.put(TITLE, item.getmTitle());
-        contentValues.put(DESCRIPTION, item.getmDescription());
-        contentValues.put(LINK, item.getmLink());
-        contentValues.put(GUID, item.getmGuid());
-        contentValues.put(PUB_DATE, item.getmPubDate());
-        contentValues.put(IMAGE_LINK, item.getmImageLink());
-        contentValues.put(CATEGORY, item.getmCategory());
+        contentValues.put(DESCRIPTION, item.getDescription());
+        contentValues.put(LINK, item.getLink());
+        contentValues.put(GUID, item.getGuid());
+        contentValues.put(PUB_DATE, item.getPubDate());
+        contentValues.put(IMAGE_LINK, item.getImageLink());
+        contentValues.put(CATEGORY, item.getCategory());
         return contentValues;
     }
 
