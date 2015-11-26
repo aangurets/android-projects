@@ -56,7 +56,7 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
             mHolder = (ViewHolder) mView.getTag();
         }
 
-        mHolder.mTitle.setText(getItem(position).getmTitle());
+        mHolder.mTitle.setText(getItem(position).getTitle());
         mHolder.mDate.setText(getItem(position).getPubDate());
         mHolder.mImage.setImageBitmap(getItem(position).getImage());
 

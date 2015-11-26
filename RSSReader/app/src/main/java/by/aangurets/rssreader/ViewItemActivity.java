@@ -64,7 +64,7 @@ public class ViewItemActivity extends Activity {
     }
 
     private void completeData(Item item) {
-        mTitle.setText(item.getmTitle());
+        mTitle.setText(item.getTitle());
         mDate.setText(item.getPubDate());
 
         // TODO: ImageGetter (getting image from HTML text)
