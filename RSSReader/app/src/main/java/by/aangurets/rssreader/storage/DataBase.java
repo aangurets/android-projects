@@ -33,30 +33,31 @@ public class DataBase {
     }
 
     public List<Item> getAll() {
-        fillingDataBase();
-        List<Item> mContacts = new ArrayList<>();
-        Cursor cursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
+        List<Item> mItems = new ArrayList<>();
+        Cursor cursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null, null);
         if (cursor != null && cursor.getCount() > 0) {
             if (cursor.moveToFirst()) {
-                int nameColumnIndex = cursor.getColumnIndex(TITLE);
-                int surnameColumnIndex = cursor.getColumnIndex(DESCRIPTION);
-                int phoneColumnIndex = cursor.getColumnIndex(LINK);
-                int emailColumnIndex = cursor.getColumnIndex(GUID);
-                int dateColumnIndex = cursor.getColumnIndex(PUB_DATE);
-                int occupationColumnIndex = cursor.getColumnIndex(OCCUPATION);
+                int titleColumnIndex = cursor.getColumnIndex(TITLE);
+                int descriptionColumnIndex = cursor.getColumnIndex(DESCRIPTION);
+                int linkColumnIndex = cursor.getColumnIndex(LINK);
+                int guidColumnIndex = cursor.getColumnIndex(GUID);
+                int pubDateColumnIndex = cursor.getColumnIndex(PUB_DATE);
+                int imageLinkColumnIndex = cursor.getColumnIndex(IMAGE_LINK);
+                int categoryColumnIndex = cursor.getColumnIndex(CATEGORY);
                 do {
-                    I contact = new Contact();
-                    contact.setName(cursor.getString(nameColumnIndex));
-                    contact.setSurname(cursor.getString(surnameColumnIndex));
-                    contact.setPhone(cursor.getString(phoneColumnIndex));
-                    contact.setEmail(cursor.getString(emailColumnIndex));
-                    contact.setDateOfBirdth(cursor.getString(dateColumnIndex));
-                    contact.setOccupation(cursor.getString(occupationColumnIndex));
-                    mContacts.add(contact);
+                    Item item = new Item();
+                    item.setTitle(cursor.getString(titleColumnIndex));
+                    item.setDescription(cursor.getString(descriptionColumnIndex));
+                    item.setLink(cursor.getString(linkColumnIndex));
+                    item.setGuid(cursor.getString(guidColumnIndex));
+                    item.setPubDate(cursor.getString(pubDateColumnIndex));
+                    item.setImageLink(cursor.getString(imageLinkColumnIndex));
+                    item.setCategory(cursor.getString(categoryColumnIndex));
+                    mItems.add(item);
                 } while (cursor.moveToNext());
             }
         }
-        return mContacts;
+        return mItems;
     }
 
     public void addItem(Item item) {
@@ -74,8 +75,8 @@ public class DataBase {
 
     private ContentValues getContentValuesFromContact(Item item) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(ID, item.getOccupation());
-        contentValues.put(TITLE, item.getmTitle());
+        contentValues.put(ID, item.getId());
+        contentValues.put(TITLE, item.getTitle());
         contentValues.put(DESCRIPTION, item.getDescription());
         contentValues.put(LINK, item.getLink());
         contentValues.put(GUID, item.getGuid());
