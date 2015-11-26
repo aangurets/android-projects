@@ -1,12 +1,12 @@
 package by.aangurets.rssreader.storage;
 
+import android.content.Context;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import by.aangurets.rssreader.Constants;
-import by.aangurets.rssreader.ReaderActivity;
 import by.aangurets.rssreader.model.Item;
 
 /**
@@ -17,31 +17,36 @@ public class ItemsStorage {
     public static ItemsStorage sItemsStorage;
     private static List<Item> sItems;
 
-    public ItemsStorage() {
+    private DataBase mDataBase;
+
+    public ItemsStorage(Context context) {
+        mDataBase = new DataBase(context);
         sItems = new ArrayList<>();
     }
 
-    public static ItemsStorage getInstance() {
+    public static ItemsStorage getInstance(Context context) {
         if (sItemsStorage == null) {
-            sItemsStorage = new ItemsStorage();
+            sItemsStorage = new ItemsStorage(context);
         }
         return sItemsStorage;
     }
 
     public void addItem(Item item) {
-        sItems.add(item);
-        Log.d(Constants.LOG_TAG, "addItem " + item + ", Items.size = " + sItems.size());
-        new ReaderActivity().updateList();
-//        new ReaderActivity().mAdapter.notifyDataSetChanged();
+        Log.d(Constants.LOG_TAG, "addItem " + item);
+//        sItems.add(item);
+        mDataBase.addItem(item);
     }
 
     public Item getItem(int position) {
-//        Log.d(Constants.LOG_TAG, "getItem " + sItems.get(position));
+        Log.d(Constants.LOG_TAG, "getItem " + sItems.get(position));
         return sItems.get(position);
     }
 
     public List<Item> getItems() {
         Log.d(Constants.LOG_TAG, "getItems. Amount = " + sItems.size());
+        if (sItems.isEmpty()) {
+            sItems = mDataBase.getAll();
+        }
         return sItems;
     }
 
