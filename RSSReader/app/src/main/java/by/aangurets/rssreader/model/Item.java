@@ -9,6 +9,8 @@ import java.text.ParseException;
  */
 public class Item {
 
+    private static int sCountId = 0;
+
     private int mId;
     private String mTitle;
     private String mDescription;
@@ -18,6 +20,10 @@ public class Item {
     private String mImageLink;
     private Bitmap mImage;
     private String mCategory;
+
+    public Item() {
+        this.mId = sCountId++;
+    }
 
     public int getId() {
         return mId;
