@@ -49,7 +49,7 @@ public class ViewItemActivity extends Activity {
         Intent mIntent = getIntent();
         mItemPosition = mIntent.getIntExtra(Constants.ITEM_POSITION, 0);
 
-        mSelectedItem = ItemsStorage.getInstance().getItem(mItemPosition);
+        mSelectedItem = ItemsStorage.getInstance(this).getItem(mItemPosition);
 
         mReadCompletelyImageButton.setOnClickListener(new View.OnClickListener() {
             @Override

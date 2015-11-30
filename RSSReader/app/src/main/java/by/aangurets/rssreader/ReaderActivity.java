@@ -44,7 +44,7 @@ public class ReaderActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reader);
 
-        ItemsStorage.getInstance().cleaningStorage();
+        ItemsStorage.getInstance(this).cleaningStorage();
 
         mAdapter = new ItemsAdapter(this, new ArrayList<Item>());
 

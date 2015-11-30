@@ -1,5 +1,6 @@
 package by.aangurets.rssreader.datahandling;
 
+import android.content.Context;
 import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -11,6 +12,7 @@ import java.net.URL;
 import java.util.List;
 
 import by.aangurets.rssreader.Constants;
+import by.aangurets.rssreader.ReaderActivity;
 import by.aangurets.rssreader.model.Item;
 import by.aangurets.rssreader.storage.ItemsStorage;
 
@@ -21,6 +23,7 @@ public class XMLParsing {
 
     public static void parseXmlAndCreateNewItem(XmlPullParser xmlPullParser) {
         Log.d(Constants.LOG_TAG, "parseXmlAndCreateNewItem");
+        Context mContext = new ReaderActivity();
         Item mItem = new Item();
         String mText = null;
         int mEvent;
@@ -67,7 +70,7 @@ public class XMLParsing {
                             mItem.setImage(ReceiverImage.getBitmapFromUrl(mImageUrl));
                         } else if (mName.equals("category")) {
                             mItem.setCategory(mText);
-                            ItemsStorage.getInstance().addItem(mItem);
+                            ItemsStorage.getInstance(mContext).addItem(mItem);
                         }
                         break;
                 }
@@ -80,6 +83,7 @@ public class XMLParsing {
     }
 
     public List<Item> getXML(final String url) {
+        Context context = new ReaderActivity();
         Thread mThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -109,6 +113,6 @@ public class XMLParsing {
             }
         });
         mThread.start();
-        return ItemsStorage.getInstance().getItems();
+        return ItemsStorage.getInstance(context).getItems();
     }
 }
