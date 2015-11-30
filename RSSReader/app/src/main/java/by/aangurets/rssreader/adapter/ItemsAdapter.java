@@ -31,7 +31,7 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
 
     @Override
     public Item getItem(int position) {
-        return ItemsStorage.getInstance().getItem(position);
+        return ItemsStorage.getInstance(getContext()).getItem(position);
     }
 
     @Override
