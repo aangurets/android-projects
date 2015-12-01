@@ -22,7 +22,7 @@ import by.aangurets.rssreader.storage.ItemsStorage;
 public class XMLParsing {
 
     public static void parseXmlAndCreateNewItem(XmlPullParser xmlPullParser) {
-        Log.d(Constants.LOG_TAG, "parseXmlAndCreateNewItem");
+        Log.d(Constants.LOG_TAG, "'parseXmlAndCreateNewItem");
         Context mContext = new ReaderActivity();
         Item mItem = new Item();
         String mText = null;
@@ -33,22 +33,16 @@ public class XMLParsing {
 
             while (mEvent != XmlPullParser.END_DOCUMENT) {
                 String mName = xmlPullParser.getName();
-//                Log.d(Constants.LOG_TAG, "mName = " + mName);
 
                 switch (mEvent) {
                     case XmlPullParser.START_DOCUMENT:
-//                        Log.d(Constants.LOG_TAG, "START_DOCUMENT");
                         break;
 
                     case XmlPullParser.START_TAG:
-//                        Log.d(Constants.LOG_TAG, "START_TAG: name = " + xmlPullParser.getName()
-//                                + ", depth = " + xmlPullParser.getDepth() + ", attrCount = "
-//                                + xmlPullParser.getAttributeCount());
                         break;
 
                     case XmlPullParser.TEXT:
                         mText = xmlPullParser.getText();
-//                        Log.d(Constants.LOG_TAG, "TEXT");
                         break;
 
                     case XmlPullParser.END_TAG:
@@ -82,8 +76,9 @@ public class XMLParsing {
 
     }
 
-    public List<Item> getXML(final String url) {
-        Context context = new ReaderActivity();
+    public void getXML(final String url) {
+        Log.d(Constants.LOG_TAG, "getXML");
+
         Thread mThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -113,6 +108,5 @@ public class XMLParsing {
             }
         });
         mThread.start();
-        return ItemsStorage.getInstance(context).getItems();
     }
 }
