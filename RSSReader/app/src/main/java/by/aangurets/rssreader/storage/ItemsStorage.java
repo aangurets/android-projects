@@ -33,7 +33,6 @@ public class ItemsStorage {
 
     public void addItem(Item item) {
         Log.d(Constants.LOG_TAG, "addItem " + item);
-//        sItems.add(item);
         mDataBase.addItem(item);
     }
 
@@ -44,9 +43,9 @@ public class ItemsStorage {
 
     public List<Item> getItems() {
         Log.d(Constants.LOG_TAG, "getItems. Amount = " + sItems.size());
-        if (sItems.isEmpty()) {
-            sItems = mDataBase.getAll();
-        }
+//        if (sItems.isEmpty()) {
+        sItems = mDataBase.getAll();
+//        }
         return sItems;
     }
 
