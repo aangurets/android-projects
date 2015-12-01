@@ -37,6 +37,7 @@ public class ReaderActivity extends AppCompatActivity
 
     private ListView mItemsListView;
     public ItemsAdapter mAdapter = null;
+    private List<Item> mItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +45,10 @@ public class ReaderActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reader);
 
-        ItemsStorage.getInstance(this).cleaningStorage();
+        getLoaderManager().initLoader(LOADER_ID, null, this);
 
-        mAdapter = new ItemsAdapter(this, new ArrayList<Item>());
+        mItems = new ArrayList<>();
+        mAdapter = new ItemsAdapter(this, mItems);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -57,7 +59,9 @@ public class ReaderActivity extends AppCompatActivity
 
         mItemsListView = (ListView) mFragment;
 
-        getLoaderManager().initLoader(LOADER_ID, null, this);
+        assert mItemsListView != null;
+        mAdapter.notifyDataSetChanged();
+        mItemsListView.setAdapter(mAdapter);
 
         mItemsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -86,7 +90,6 @@ public class ReaderActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        mItemsListView.setAdapter(mAdapter);
     }
 
     @Override
@@ -179,8 +182,9 @@ public class ReaderActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<List<Item>> loader, List<Item> data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
-        mAdapter = new ItemsAdapter(this, data);
-        mItemsListView.setAdapter(mAdapter);
+        mItems = data;
+//        mAdapter = new ItemsAdapter(this, data);
+//        mItemsListView.setAdapter(mAdapter);
     }
 
     @Override
@@ -198,7 +202,8 @@ public class ReaderActivity extends AppCompatActivity
         @Override
         public List<Item> loadInBackground() {
             Log.d(Constants.LOG_TAG, "loadInBackground");
-            return new XMLParsing().getXML(Constants.FAKTY_URL);
+            new XMLParsing().getXML(Constants.FAKTY_URL);
+            return ItemsStorage.getInstance(getContext()).getItems();
         }
 
         @Override
