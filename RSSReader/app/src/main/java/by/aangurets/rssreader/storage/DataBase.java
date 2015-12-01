@@ -5,10 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import by.aangurets.rssreader.Constants;
 import by.aangurets.rssreader.model.Item;
 
 public class DataBase {
@@ -54,6 +56,7 @@ public class DataBase {
                     item.setImageLink(cursor.getString(imageLinkColumnIndex));
                     item.setCategory(cursor.getString(categoryColumnIndex));
                     mItems.add(item);
+                    Log.d(Constants.LOG_TAG, "DataBase.AddItem: " + item);
                 } while (cursor.moveToNext());
             }
         }
@@ -98,7 +101,7 @@ public class DataBase {
                     ID + " integer primary key autoincrement, " +
                     TITLE + " TEXT NOT NULL , " + DESCRIPTION + " TEXT NOT NULL , "
                     + LINK + " TEXT NOT NULL , " + GUID + " TEXT NOT NULL , "
-                    + PUB_DATE + " TEXT NOT NULL , " + IMAGE_LINK + " TEXT NOT NULL"
+                    + PUB_DATE + " TEXT NOT NULL , " + IMAGE_LINK + " TEXT NOT NULL, "
                     + CATEGORY + " TEXT NOT NULL" + ");");
         }
 
