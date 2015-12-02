@@ -9,7 +9,6 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
 
 import by.aangurets.rssreader.Constants;
 import by.aangurets.rssreader.ReaderActivity;
@@ -21,8 +20,8 @@ import by.aangurets.rssreader.storage.ItemsStorage;
  */
 public class XMLParsing {
 
-    public static void parseXmlAndCreateNewItem(XmlPullParser xmlPullParser) {
-        Log.d(Constants.LOG_TAG, "'parseXmlAndCreateNewItem");
+    public void parseXmlAndCreateNewItem(XmlPullParser xmlPullParser) {
+        Log.d(Constants.LOG_TAG, "parseXmlAndCreateNewItem");
         Context mContext = new ReaderActivity();
         Item mItem = new Item();
         String mText = null;
@@ -72,16 +71,17 @@ public class XMLParsing {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            Log.d(Constants.LOG_TAG, "parseXmlAndCreateNewItem.Exception: " + e);
         }
 
     }
 
-    public void getXML(final String url) {
+    public XmlPullParser getXML(final String url) {
         Log.d(Constants.LOG_TAG, "getXML");
-
-        Thread mThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
+        XmlPullParser mParser = null;
+//        Thread mThread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
                 try {
                     URL mUrl = new URL(url);
                     HttpURLConnection mConnection = (HttpURLConnection) mUrl.openConnection();
@@ -95,18 +95,21 @@ public class XMLParsing {
                     InputStream mStream = mConnection.getInputStream();
 
                     XmlPullParserFactory mXmlFactoryObject = XmlPullParserFactory.newInstance();
-                    XmlPullParser mParser = mXmlFactoryObject.newPullParser();
+                    mParser = mXmlFactoryObject.newPullParser();
 
                     mParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
                     mParser.setInput(mStream, null);
 
                     parseXmlAndCreateNewItem(mParser);
                     mStream.close();
+
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Log.d(Constants.LOG_TAG, "getXML.Exception: " + e);
                 }
-            }
-        });
-        mThread.start();
+//            }
+//        });
+//        mThread.start();
+        return mParser;
     }
 }
