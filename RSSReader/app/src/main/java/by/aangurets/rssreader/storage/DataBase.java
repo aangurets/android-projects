@@ -35,6 +35,7 @@ public class DataBase {
     }
 
     public List<Item> getAll() {
+        Log.d(Constants.LOG_TAG, "DataBase.getAll");
         List<Item> mItems = new ArrayList<>();
         Cursor cursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null, null);
         if (cursor != null && cursor.getCount() > 0) {
@@ -64,6 +65,7 @@ public class DataBase {
     }
 
     public void addItem(Item item) {
+        Log.d(Constants.LOG_TAG, "DataBase.addItem");
         mDataBase.insert(TABLE_NAME, null, getContentValuesFromContact(item));
     }
 
