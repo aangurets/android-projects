@@ -37,7 +37,6 @@ public class ReaderActivity extends AppCompatActivity
 
     private ListView mItemsListView;
     public ItemsAdapter mAdapter = null;
-    private List<Item> mItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +46,7 @@ public class ReaderActivity extends AppCompatActivity
 
         getLoaderManager().initLoader(LOADER_ID, null, this);
 
-        mItems = new ArrayList<>();
-        mAdapter = new ItemsAdapter(this, mItems);
+//        mAdapter = new ItemsAdapter(this, new ArrayList<Item>());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -58,10 +56,6 @@ public class ReaderActivity extends AppCompatActivity
         View mFragment = mItemsListFragment.getView();
 
         mItemsListView = (ListView) mFragment;
-
-        assert mItemsListView != null;
-        mAdapter.notifyDataSetChanged();
-        mItemsListView.setAdapter(mAdapter);
 
         mItemsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -90,12 +84,6 @@ public class ReaderActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-    }
-
-    @Override
-    protected void onResume() {
-        Log.d(Constants.LOG_TAG, "onResume");
-        super.onResume();
     }
 
     @Override
@@ -156,12 +144,6 @@ public class ReaderActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    protected void onStop() {
-        Log.d(Constants.LOG_TAG, "onStop");
-        super.onStop();
-    }
-
     public void updateList() {
         this.runOnUiThread(new Runnable() {
             @Override
@@ -182,15 +164,13 @@ public class ReaderActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<List<Item>> loader, List<Item> data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
-        mItems = data;
-//        mAdapter = new ItemsAdapter(this, data);
-//        mItemsListView.setAdapter(mAdapter);
+        mAdapter = new ItemsAdapter(this, data);
+        mItemsListView.setAdapter(mAdapter);
+        updateList();
     }
 
     @Override
     public void onLoaderReset(Loader<List<Item>> loader) {
-//        Log.d(Constants.LOG_TAG, "onLoaderReset");
-//        ItemsStorage.getInstance().cleaningStorage();
     }
 
     private static class ItemsLoader extends AbstractLoader<List<Item>> {
