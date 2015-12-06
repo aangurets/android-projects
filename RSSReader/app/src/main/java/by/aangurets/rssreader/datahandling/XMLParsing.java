@@ -62,7 +62,7 @@ public class XMLParsing {
                         } else if (mName.equals("enclosure")) {
                             String mImageUrl = xmlPullParser.getAttributeValue(null, "url");
                             mItem.setImageLink(mImageUrl);
-                            mItem.setImage(ReceiverImage.getBitmapFromUrl(mImageUrl));
+//                            mItem.setImage(ReceiverImage.getBitmapFromUrl(mImageUrl));
                         } else if (mName.equals("category")) {
                             mItem.setCategory(mText);
                             ItemsStorage.getInstance(mContext).addItem(mItem);
