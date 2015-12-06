@@ -1,25 +1,42 @@
 package by.aangurets.rssreader.model;
 
-import android.graphics.Bitmap;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 
 import java.text.ParseException;
 
 /**
  * Created by andrei.angurets on 28/10/2015.
  */
+@Root(name = "item")
 public class Item {
 
     private static int sCountId = 0;
 
     private int mId;
+
+    @Element(name = "title")
     private String mTitle;
+
+    @Element(name = "description")
     private String mDescription;
+
+    @Element(name = "link")
     private String mLink;
+
+    @Element(name = "guid")
     private String mGuid;
+
+    @Element(name = "pubDate")
     private String mPubDate;
+
+    @Attribute(name = "enclosure")
     private String mImageLink;
-    private Bitmap mImage;
+
+    @Element(name = "category")
     private String mCategory;
+
 
     public Item() {
         this.mId = sCountId++;
@@ -84,14 +101,6 @@ public class Item {
 
     public void setImageLink(String mImageLink) {
         this.mImageLink = mImageLink;
-    }
-
-    public Bitmap getImage() {
-        return mImage;
-    }
-
-    public void setImage(Bitmap mImage) {
-        this.mImage = mImage;
     }
 
     public String getCategory() {
