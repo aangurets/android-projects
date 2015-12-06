@@ -29,7 +29,9 @@ import java.util.List;
 import by.aangurets.rssreader.adapter.ItemsAdapter;
 import by.aangurets.rssreader.datahandling.XMLParsing;
 import by.aangurets.rssreader.loader.AbstractLoader;
+import by.aangurets.rssreader.model.Image;
 import by.aangurets.rssreader.model.Item;
+import by.aangurets.rssreader.networking.ItemsServiceHolder;
 import by.aangurets.rssreader.storage.ItemsStorage;
 
 public class ReaderActivity extends AppCompatActivity
@@ -47,8 +49,6 @@ public class ReaderActivity extends AppCompatActivity
         setContentView(R.layout.activity_reader);
 
         getLoaderManager().initLoader(LOADER_ID, null, this);
-
-//        mAdapter = new ItemsAdapter(this, new ArrayList<Item>());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -177,7 +177,8 @@ public class ReaderActivity extends AppCompatActivity
         public List<Item> loadInBackground() {
             try {
                 Log.d(Constants.LOG_TAG, "loadInBackground");
-                return new XMLParsing().getXML(Constants.FAKTY_URL);
+//                return new XMLParsing().getXML(Constants.FAKTY_URL);
+                return ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY);
             } catch (Exception e) {
                 Log.d(Constants.LOG_TAG, "loadInBackground.exception: " + e);
                 return Collections.emptyList();
