@@ -45,7 +45,7 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
             mHolder = new ViewHolder();
             mHolder.mTitle = (TextView) mView.findViewById(R.id.itemTitle);
             mHolder.mDate = (TextView) mView.findViewById(R.id.itemDate);
-            mHolder.mImage = (ImageView) mView.findViewById(R.id.itemImage);
+//            mHolder.mImage = (ImageView) mView.findViewById(R.id.itemImage);
             mView.setTag(mHolder);
         } else {
             mHolder = (ViewHolder) mView.getTag();
@@ -53,7 +53,7 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
 
         mHolder.mTitle.setText(getItem(position).getTitle());
         mHolder.mDate.setText(getItem(position).getPubDate());
-        mHolder.mImage.setImageBitmap(getItem(position).getImage());
+//        mHolder.mImage.setImageBitmap(getItem(position).getImage());
 
 //        ImageOptions mImageOptions = new ImageOptions();
 //        mImageOptions.round = 50;
@@ -65,6 +65,6 @@ public class ItemsAdapter extends ArrayAdapter<Item> {
     static class ViewHolder {
         public TextView mTitle;
         public TextView mDate;
-        public ImageView mImage;
+//        public ImageView mImage;
     }
 }
