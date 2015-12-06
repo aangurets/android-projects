@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by aangurets on 06/12/2015.
  */
-@Root
+@Root(name = "channel", strict = false)
 public class Channel {
 
     @Attribute(name = "atom:link")

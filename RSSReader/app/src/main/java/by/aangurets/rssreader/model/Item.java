@@ -9,7 +9,7 @@ import java.text.ParseException;
 /**
  * Created by andrei.angurets on 28/10/2015.
  */
-@Root(name = "item")
+@Root(name = "item", strict = false)
 public class Item {
 
     private static int sCountId = 0;

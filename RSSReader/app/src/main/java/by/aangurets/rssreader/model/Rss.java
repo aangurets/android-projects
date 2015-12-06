@@ -6,7 +6,7 @@ import org.simpleframework.xml.Root;
  * Created by aangurets on 06/12/2015.
  */
 
-@Root(name = "rss")
+@Root(name = "rss", strict = false)
 public class Rss {
 
     private Channel mChannel;
