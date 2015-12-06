@@ -18,9 +18,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import by.aangurets.rssreader.adapter.ItemsAdapter;
@@ -36,7 +39,6 @@ public class ReaderActivity extends AppCompatActivity
     public static final int LOADER_ID = 1;
 
     private ListView mItemsListView;
-    public ItemsAdapter mAdapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,14 +147,7 @@ public class ReaderActivity extends AppCompatActivity
     }
 
     public void updateList() {
-        this.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Log.d(Constants.LOG_TAG, "updateList");
-//                ((ItemsAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
-                mAdapter.notifyDataSetChanged();
-            }
-        });
+        ((BaseAdapter) mItemsListView.getAdapter()).notifyDataSetChanged();
     }
 
     @Override
@@ -164,8 +159,7 @@ public class ReaderActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<List<Item>> loader, List<Item> data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
-        mAdapter = new ItemsAdapter(this, data);
-        mItemsListView.setAdapter(mAdapter);
+        mItemsListView.setAdapter(new ItemsAdapter(this, data));
         updateList();
     }
 
@@ -181,9 +175,13 @@ public class ReaderActivity extends AppCompatActivity
 
         @Override
         public List<Item> loadInBackground() {
-            Log.d(Constants.LOG_TAG, "loadInBackground");
-            new XMLParsing().getXML(Constants.FAKTY_URL);
-            return ItemsStorage.getInstance(getContext()).getItems();
+            try {
+                Log.d(Constants.LOG_TAG, "loadInBackground");
+                return new XMLParsing().getXML(Constants.FAKTY_URL);
+            } catch (Exception e) {
+                Log.d(Constants.LOG_TAG, "loadInBackground.exception: " + e);
+                return Collections.emptyList();
+            }
         }
 
         @Override
