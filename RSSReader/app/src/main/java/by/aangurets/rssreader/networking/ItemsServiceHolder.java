@@ -15,7 +15,7 @@ public class ItemsServiceHolder {
         static {
             RestAdapter.Builder builder = new RestAdapter.Builder();
             builder.setEndpoint(Constants.RMF_ENDPOINT);
-
+            builder.setLogLevel(RestAdapter.LogLevel.FULL);
             builder.setConverter(new SimpleXMLConverter());
             INSTANCE = builder.build().create(ItemsService.class);
         }
