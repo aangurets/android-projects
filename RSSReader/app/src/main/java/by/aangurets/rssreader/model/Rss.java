@@ -1,5 +1,6 @@
 package by.aangurets.rssreader.model;
 
+import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
 /**
@@ -9,12 +10,9 @@ import org.simpleframework.xml.Root;
 @Root(name = "rss", strict = false)
 public class Rss {
 
+    @Element(name = "channel")
     private Channel mChannel;
 
     public Rss() {
-    }
-
-    public Rss(Channel mChannel) {
-        this.mChannel = mChannel;
     }
 }
