@@ -10,10 +10,10 @@ import java.util.List;
 /**
  * Created by aangurets on 06/12/2015.
  */
-@Root(name = "channel", strict = false)
+@Root(name = "channel")
 public class Channel {
 
-    @Attribute(name = "atom:link")
+    @Attribute(required = false)
     private String mAtomLink;
 
     @Element(name = "title")
@@ -43,25 +43,10 @@ public class Channel {
     @Element(name = "copyright")
     private String mCopyright;
 
-    @ElementList(inline = true)
+    @ElementList(name = "item")
     List<Item> mItems;
 
-    public Channel(String mAtomLink) {
-        this.mAtomLink = mAtomLink;
-    }
-
-    public Channel(String mAtomLink, String mTitle, String mDescription, String mLink, Image mImage, String mLanguage, String mPubDate, String mLastBuildDate, int mTtl, String mCopyright, List<Item> mItems) {
-        this.mAtomLink = mAtomLink;
-        this.mTitle = mTitle;
-        this.mDescription = mDescription;
-        this.mLink = mLink;
-        this.mImage = mImage;
-        this.mLanguage = mLanguage;
-        this.mPubDate = mPubDate;
-        this.mLastBuildDate = mLastBuildDate;
-        this.mTtl = mTtl;
-        this.mCopyright = mCopyright;
-        this.mItems = mItems;
+    public Channel() {
     }
 
     public String getmAtomLink() {
