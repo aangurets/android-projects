@@ -3,6 +3,7 @@ package by.aangurets.rssreader.networking;
 import java.util.List;
 
 import by.aangurets.rssreader.model.Item;
+import by.aangurets.rssreader.model.ItemsList;
 import retrofit.http.GET;
 import retrofit.http.Path;
 
@@ -12,6 +13,6 @@ import retrofit.http.Path;
 public interface ItemsService {
 
     @GET("/{path}/feed")
-    List<Item> listItems(@Path("path") String path);
+    ItemsList listItems(@Path("path") String path);
 
 }
