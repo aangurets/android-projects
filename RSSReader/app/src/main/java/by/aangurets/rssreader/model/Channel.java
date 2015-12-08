@@ -2,10 +2,7 @@ package by.aangurets.rssreader.model;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
-
-import java.util.List;
 
 /**
  * Created by aangurets on 06/12/2015.
@@ -14,126 +11,115 @@ import java.util.List;
 public class Channel {
 
     @Attribute(required = false)
-    private String mAtomLink;
+    private String atom;
 
-    @Element(name = "title")
-    private String mTitle;
+    @Element
+    private String title;
 
-    @Element(name = "description")
-    private String mDescription;
+    @Element
+    private String description;
 
-    @Element(name = "link")
-    private String mLink;
+    @Element
+    private String link;
 
-    @Element(name = "image")
-    private Image mImage;
+    @Element
+    private Image image;
 
-    @Element(name = "language")
-    private String mLanguage;
+    @Element
+    private String language;
 
-    @Element(name = "pubDate")
-    private String mPubDate;
+    @Element
+    private String pubDate;
 
-    @Element(name = "lastBuildDate")
-    private String mLastBuildDate;
+    @Element
+    private String lastBuildDate;
 
-    @Element(name = "ttl")
-    private int mTtl;
+    @Element
+    private String ttl;
 
-    @Element(name = "copyright")
-    private String mCopyright;
-
-    @ElementList(name = "item")
-    List<Item> mItems;
+    @Element
+    private String copyright;
 
     public Channel() {
     }
 
-    public String getmAtomLink() {
-        return mAtomLink;
+    public String getAtom() {
+        return atom;
     }
 
-    public void setmAtomLink(String mAtomLink) {
-        this.mAtomLink = mAtomLink;
+    public void setAtom(String atom) {
+        this.atom = atom;
     }
 
     public String getmTitle() {
-        return mTitle;
+        return title;
     }
 
     public void setmTitle(String mTitle) {
-        this.mTitle = mTitle;
+        this.title = mTitle;
     }
 
-    public String getmDescription() {
-        return mDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setmDescription(String mDescription) {
-        this.mDescription = mDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getmLink() {
-        return mLink;
+    public String getLink() {
+        return link;
     }
 
-    public void setmLink(String mLink) {
-        this.mLink = mLink;
+    public void setLink(String link) {
+        this.link = link;
     }
 
-    public Image getmImage() {
-        return mImage;
+    public Image getImage() {
+        return image;
     }
 
-    public void setmImage(Image mImage) {
-        this.mImage = mImage;
+    public void setImage(Image image) {
+        this.image = image;
     }
 
-    public String getmLanguage() {
-        return mLanguage;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setmLanguage(String mLanguage) {
-        this.mLanguage = mLanguage;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
-    public String getmPubDate() {
-        return mPubDate;
+    public String getPubDate() {
+        return pubDate;
     }
 
-    public void setmPubDate(String mPubDate) {
-        this.mPubDate = mPubDate;
+    public void setPubDate(String pubDate) {
+        this.pubDate = pubDate;
     }
 
-    public String getmLastBuildDate() {
-        return mLastBuildDate;
+    public String getLastBuildDate() {
+        return lastBuildDate;
     }
 
-    public void setmLastBuildDate(String mLastBuildDate) {
-        this.mLastBuildDate = mLastBuildDate;
+    public void setLastBuildDate(String lastBuildDate) {
+        this.lastBuildDate = lastBuildDate;
     }
 
-    public int getmTtl() {
-        return mTtl;
+    public String getTtl() {
+        return ttl;
     }
 
-    public void setmTtl(int mTtl) {
-        this.mTtl = mTtl;
+    public void setTtl(String ttl) {
+        this.ttl = ttl;
     }
 
-    public String getmCopyright() {
-        return mCopyright;
+    public String getCopyright() {
+        return copyright;
     }
 
-    public void setmCopyright(String mCopyright) {
-        this.mCopyright = mCopyright;
-    }
-
-    public List<Item> getmItems() {
-        return mItems;
-    }
-
-    public void setmItems(List<Item> mItems) {
-        this.mItems = mItems;
+    public void setCopyright(String copyright) {
+        this.copyright = copyright;
     }
 }
