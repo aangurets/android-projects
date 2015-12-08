@@ -31,12 +31,13 @@ import by.aangurets.rssreader.datahandling.XMLParsing;
 import by.aangurets.rssreader.loader.AbstractLoader;
 import by.aangurets.rssreader.model.Image;
 import by.aangurets.rssreader.model.Item;
+import by.aangurets.rssreader.model.ItemsList;
 import by.aangurets.rssreader.networking.ItemsServiceHolder;
 import by.aangurets.rssreader.storage.ItemsStorage;
 
 public class ReaderActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        LoaderManager.LoaderCallbacks<List<Item>> {
+        LoaderManager.LoaderCallbacks<ItemsList> {
 
     public static final int LOADER_ID = 1;
 
@@ -151,37 +152,39 @@ public class ReaderActivity extends AppCompatActivity
     }
 
     @Override
-    public Loader<List<Item>> onCreateLoader(int id, Bundle args) {
+    public Loader<ItemsList> onCreateLoader(int id, Bundle args) {
         Log.d(Constants.LOG_TAG, "onCreateLoader");
         return new ItemsLoader(this);
     }
 
     @Override
-    public void onLoadFinished(Loader<List<Item>> loader, List<Item> data) {
+    public void onLoadFinished(Loader<ItemsList> loader, ItemsList data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
         mItemsListView.setAdapter(new ItemsAdapter(this, data));
         updateList();
     }
 
     @Override
-    public void onLoaderReset(Loader<List<Item>> loader) {
+    public void onLoaderReset(Loader<ItemsList> loader) {
     }
 
-    private static class ItemsLoader extends AbstractLoader<List<Item>> {
+    private static class ItemsLoader extends AbstractLoader<ItemsList> {
 
         public ItemsLoader(Context context) {
             super(context);
         }
 
         @Override
-        public List<Item> loadInBackground() {
+        public ItemsList loadInBackground() {
             try {
                 Log.d(Constants.LOG_TAG, "loadInBackground");
 //                return new XMLParsing().getXML(Constants.FAKTY_URL);
-                return ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY);
+                ItemsList itemList = ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY);
+                Log.d(Constants.LOG_TAG, "itemList: " + itemList.size());
+                return itemList;
             } catch (Exception e) {
                 Log.d(Constants.LOG_TAG, "loadInBackground.exception: " + e);
-                return Collections.emptyList();
+                return new ItemsList();
             }
         }
 
@@ -192,7 +195,7 @@ public class ReaderActivity extends AppCompatActivity
 
 
         @Override
-        protected void freeResource(List<Item> data) {
+        protected void freeResource(ItemsList data) {
 
         }
     }
