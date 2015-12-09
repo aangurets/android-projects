@@ -2,43 +2,49 @@ package by.aangurets.rssreader.model;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
+
+import java.util.ArrayList;
 
 /**
  * Created by aangurets on 06/12/2015.
  */
-@Root(name = "channel")
+@Root(name = "channel", strict = false)
 public class Channel {
 
-    @Attribute(required = false)
+    @Attribute(name = "atom", required = false)
     private String atom;
 
-    @Element
+    @Element(required = false)
     private String title;
 
-    @Element
+    @Element(required = false)
     private String description;
 
-    @Element
+    @Element(required = false)
     private String link;
 
-    @Element
+    @Element(required = false)
     private Image image;
 
-    @Element
+    @Element(required = false)
     private String language;
 
-    @Element
+    @Element(required = false)
     private String pubDate;
 
-    @Element
+    @Element(required = false)
     private String lastBuildDate;
 
-    @Element
+    @Element(required = false)
     private String ttl;
 
-    @Element
+    @Element(required = false)
     private String copyright;
+
+    @ElementList(entry = "item", inline = true)
+    ArrayList<Item> mItems;
 
     public Channel() {
     }
@@ -121,5 +127,21 @@ public class Channel {
 
     public void setCopyright(String copyright) {
         this.copyright = copyright;
+    }
+
+    public ArrayList<Item> getItems() {
+        return mItems;
+    }
+
+    public void setItems(ArrayList<Item> mItems) {
+        this.mItems = mItems;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
