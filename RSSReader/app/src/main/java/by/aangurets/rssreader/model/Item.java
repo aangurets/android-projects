@@ -32,7 +32,7 @@ public class Item {
     private String mPubDate;
 
     @Attribute(name = "enclosure")
-    private String mImageLink;
+    private Enclosure mEnclosure;
 
     @Element(name = "category")
     private String mCategory;
@@ -95,12 +95,12 @@ public class Item {
         }
     }
 
-    public String getImageLink() {
-        return mImageLink;
+    public String getmEnclosure() {
+        return mEnclosure.getmUrl();
     }
 
-    public void setImageLink(String mImageLink) {
-        this.mImageLink = mImageLink;
+    public void setmEnclosure(String mEnclosure) {
+        this.mEnclosure.setmUrl(mEnclosure);
     }
 
     public String getCategory() {
@@ -119,7 +119,7 @@ public class Item {
                 "; Link = " + mLink +
                 "; Guid = " + mGuid +
                 "; PubDate = " + mPubDate +
-                "; ImageLink = " + mImageLink +
+                "; Enclosure = " + mEnclosure +
                 "; Category = " + mCategory +
                 '}';
     }
