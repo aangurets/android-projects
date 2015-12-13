@@ -1,5 +1,6 @@
 package by.aangurets.rssreader.model;
 
+import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
@@ -9,13 +10,13 @@ import org.simpleframework.xml.Root;
 @Root(name = "enclosure")
 public class Enclosure {
 
-    @Element(name = "url")
+    @Attribute(name = "url")
     private String mUrl;
 
-    @Element(name = "type")
+    @Attribute(name = "type")
     private String mType;
 
-    @Element(name = "length")
+    @Attribute(name = "length")
     private int mLength;
 
     public Enclosure() {
