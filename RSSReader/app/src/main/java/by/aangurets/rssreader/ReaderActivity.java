@@ -21,19 +21,10 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
 import by.aangurets.rssreader.adapter.ItemsAdapter;
-import by.aangurets.rssreader.datahandling.XMLParsing;
 import by.aangurets.rssreader.loader.AbstractLoader;
-import by.aangurets.rssreader.model.Image;
-import by.aangurets.rssreader.model.Item;
 import by.aangurets.rssreader.model.ItemsList;
 import by.aangurets.rssreader.networking.ItemsServiceHolder;
-import by.aangurets.rssreader.storage.ItemsStorage;
 
 public class ReaderActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -160,7 +151,7 @@ public class ReaderActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<ItemsList> loader, ItemsList data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
-        mItemsListView.setAdapter(new ItemsAdapter(this, data));
+        mItemsListView.setAdapter(new ItemsAdapter(this, data.getmItems()));
         updateList();
     }
 
@@ -178,10 +169,7 @@ public class ReaderActivity extends AppCompatActivity
         public ItemsList loadInBackground() {
             try {
                 Log.d(Constants.LOG_TAG, "loadInBackground");
-//                return new XMLParsing().getXML(Constants.FAKTY_URL);
-                ItemsList itemList = ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY);
-                Log.d(Constants.LOG_TAG, "itemList: " + itemList.size());
-                return itemList;
+                return ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY);
             } catch (Exception e) {
                 Log.d(Constants.LOG_TAG, "loadInBackground.exception: " + e);
                 return new ItemsList();
