@@ -2,6 +2,7 @@ package by.aangurets.rssreader.model;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 
 import java.util.ArrayList;
 
@@ -15,4 +16,18 @@ public class ItemsList extends ArrayList<Item> {
 
     @Element(name = "channel")
     private Channel mChannel;
+
+    @ElementList
+    ArrayList<Item> mItems;
+
+    public ItemsList() {
+    }
+
+    public ArrayList<Item> getmItems() {
+        return mItems;
+    }
+
+    public void setmItems(ArrayList<Item> mItems) {
+        this.mItems = mItems;
+    }
 }
