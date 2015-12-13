@@ -31,7 +31,7 @@ public class Item {
     @Element(name = "pubDate")
     private String mPubDate;
 
-    @Attribute(name = "enclosure")
+    @Element(name = "enclosure")
     private Enclosure mEnclosure;
 
     @Element(name = "category")
