@@ -160,7 +160,7 @@ public class ReaderActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<ItemsList> loader, ItemsList data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
-        mItemsListView.setAdapter(new ItemsAdapter(this, data));
+        mItemsListView.setAdapter(new ItemsAdapter(this, data.getmItems()));
         updateList();
     }
 
