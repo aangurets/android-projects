@@ -17,7 +17,7 @@ public class ItemsList extends ArrayList<Item> {
     @Element(name = "channel")
     private Channel mChannel;
 
-    @ElementList
+    @ElementList(entry = "item", inline = false, empty = true, data = false, required = true)
     ArrayList<Item> mItems;
 
     public ItemsList() {
