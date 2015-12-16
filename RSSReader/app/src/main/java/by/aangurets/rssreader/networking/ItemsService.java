@@ -1,8 +1,5 @@
 package by.aangurets.rssreader.networking;
 
-import java.util.List;
-
-import by.aangurets.rssreader.model.Item;
 import by.aangurets.rssreader.model.ItemsList;
 import retrofit.http.GET;
 import retrofit.http.Path;
