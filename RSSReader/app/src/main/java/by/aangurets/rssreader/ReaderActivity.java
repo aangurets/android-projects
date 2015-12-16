@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import by.aangurets.rssreader.adapter.ItemsAdapter;
 import by.aangurets.rssreader.loader.AbstractLoader;
@@ -151,7 +152,11 @@ public class ReaderActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<ItemsList> loader, ItemsList data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
-        mItemsListView.setAdapter(new ItemsAdapter(this, data.getmItems()));
+        if (data.getmItems() != null) {
+            mItemsListView.setAdapter(new ItemsAdapter(this, data.getmItems()));
+        } else {
+            Toast.makeText(this, "Empty", Toast.LENGTH_LONG).show();
+        }
         updateList();
     }
 
