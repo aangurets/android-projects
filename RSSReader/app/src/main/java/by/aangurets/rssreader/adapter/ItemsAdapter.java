@@ -8,10 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import by.aangurets.rssreader.R;
 import by.aangurets.rssreader.model.Item;
+import by.aangurets.rssreader.model.ItemsList;
 import by.aangurets.rssreader.storage.ItemsStorage;
 
 /**
@@ -19,7 +21,7 @@ import by.aangurets.rssreader.storage.ItemsStorage;
  */
 public class ItemsAdapter extends ArrayAdapter<Item> {
 
-    public ItemsAdapter(Context context, List<Item> items) {
+    public ItemsAdapter(Context context, ArrayList<Item> items) {
         super(context, android.R.layout.simple_list_item_1, android.R.id.text1, items);
         LayoutInflater.from(context);
     }

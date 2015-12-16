@@ -54,7 +54,7 @@ public class DataBase {
                     item.setLink(cursor.getString(linkColumnIndex));
                     item.setGuid(cursor.getString(guidColumnIndex));
                     item.setPubDate(cursor.getString(pubDateColumnIndex));
-                    item.setImageLink(cursor.getString(imageLinkColumnIndex));
+                    item.setmEnclosure(cursor.getString(imageLinkColumnIndex));
                     item.setCategory(cursor.getString(categoryColumnIndex));
                     mItems.add(item);
                     Log.d(Constants.LOG_TAG, "DataBase.AddItem: " + item);
@@ -86,7 +86,7 @@ public class DataBase {
         contentValues.put(LINK, item.getLink());
         contentValues.put(GUID, item.getGuid());
         contentValues.put(PUB_DATE, item.getPubDate());
-        contentValues.put(IMAGE_LINK, item.getImageLink());
+        contentValues.put(IMAGE_LINK, item.getmEnclosure());
         contentValues.put(CATEGORY, item.getCategory());
         return contentValues;
     }

@@ -18,14 +18,9 @@ public class ItemsList extends ArrayList<Item> {
     private Channel mChannel;
 
     @ElementList
-    private ArrayList<Item> mItems;
+    ArrayList<Item> mItems;
 
     public ItemsList() {
-    }
-
-    public ItemsList(int capacity, ArrayList<Item> mItems) {
-        super(capacity);
-        this.mItems = mItems;
     }
 
     public ArrayList<Item> getmItems() {
