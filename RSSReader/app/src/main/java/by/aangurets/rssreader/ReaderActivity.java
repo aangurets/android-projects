@@ -157,7 +157,7 @@ public class ReaderActivity extends AppCompatActivity
         } else {
             Toast.makeText(this, "Empty", Toast.LENGTH_LONG).show();
         }
-        updateList();
+//        updateList();
     }
 
     @Override
@@ -176,7 +176,7 @@ public class ReaderActivity extends AppCompatActivity
                 Log.d(Constants.LOG_TAG, "loadInBackground");
                 return ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY);
             } catch (Exception e) {
-                Log.d(Constants.LOG_TAG, "loadInBackground.exception: " + e);
+                Log.e(Constants.LOG_TAG, "loadInBackground.exception: " + e);
                 return new ItemsList();
             }
         }
