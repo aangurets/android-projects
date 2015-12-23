@@ -152,7 +152,9 @@ public class ReaderActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<ItemsList> loader, ItemsList data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
+        Log.d(Constants.LOG_TAG, "Data: " + data.getmItems());
         if (data.getmItems() != null) {
+
             mItemsListView.setAdapter(new ItemsAdapter(this, data.getmItems()));
         } else {
             Toast.makeText(this, "Empty", Toast.LENGTH_LONG).show();
