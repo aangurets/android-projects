@@ -16,6 +16,8 @@ public class Channel {
     @Attribute(name = "atom", required = false)
     private String atom;
 
+    private String version;
+
     @Element(required = false)
     private String title;
 
@@ -44,7 +46,7 @@ public class Channel {
     private String copyright;
 
     @ElementList(entry = "item", inline = true)
-    ArrayList<Item> mItems;
+    ItemsList mItems;
 
     public Channel() {
     }
@@ -56,6 +58,15 @@ public class Channel {
     public void setAtom(String atom) {
         this.atom = atom;
     }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
 
     public String getmTitle() {
         return title;
@@ -129,11 +140,11 @@ public class Channel {
         this.copyright = copyright;
     }
 
-    public ArrayList<Item> getItems() {
+    public ItemsList getItems() {
         return mItems;
     }
 
-    public void setItems(ArrayList<Item> mItems) {
+    public void setItems(ItemsList mItems) {
         this.mItems = mItems;
     }
 
