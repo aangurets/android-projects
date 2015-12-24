@@ -1,7 +1,5 @@
 package by.aangurets.rssreader.model;
 
-import org.simpleframework.xml.ElementList;
-
 import java.util.ArrayList;
 
 /**
@@ -9,7 +7,6 @@ import java.util.ArrayList;
  */
 public class ItemsList extends ArrayList<Item> {
 
-    @ElementList(required = false)
     ArrayList<Item> items;
 
     public ItemsList() {
