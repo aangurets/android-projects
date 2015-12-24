@@ -5,17 +5,16 @@ import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
-import java.util.ArrayList;
-
 /**
  * Created by aangurets on 06/12/2015.
  */
 @Root(name = "channel", strict = false)
 public class Channel {
 
-    @Attribute(name = "atom", required = false)
+    @Attribute(name = "link", required = false)
     private String atom;
 
+    @Attribute
     private String version;
 
     @Element(required = false)
