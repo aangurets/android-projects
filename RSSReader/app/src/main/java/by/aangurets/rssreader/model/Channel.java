@@ -14,8 +14,11 @@ public class Channel {
     @Attribute(name = "link", required = false)
     private String atom;
 
-    @Attribute
-    private String version;
+    @Attribute(name = "rel", required = false)
+    private String rel;
+
+    @Attribute(name = "type", required = false)
+    private String type;
 
     @Element(required = false)
     private String title;
@@ -58,21 +61,28 @@ public class Channel {
         this.atom = atom;
     }
 
-    public String getVersion() {
-        return version;
+    public String getRel() {
+        return rel;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setRel(String rel) {
+        this.rel = rel;
     }
 
+    public String getType() {
+        return type;
+    }
 
-    public String getmTitle() {
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getTitle() {
         return title;
     }
 
-    public void setmTitle(String mTitle) {
-        this.title = mTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -139,19 +149,11 @@ public class Channel {
         this.copyright = copyright;
     }
 
-    public ItemsList getItems() {
+    public ItemsList getmItems() {
         return mItems;
     }
 
-    public void setItems(ItemsList mItems) {
+    public void setmItems(ItemsList mItems) {
         this.mItems = mItems;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 }
