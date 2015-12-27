@@ -156,4 +156,23 @@ public class Channel {
     public void setItems(ItemsList items) {
         this.items = items;
     }
+
+    @Override
+    public String toString() {
+        return "Channel: " +
+                "atom ='" + atom + '\'' +
+                ", rel ='" + rel + '\'' +
+                ", type ='" + type + '\'' +
+                ", title ='" + title + '\'' +
+                ", description ='" + description + '\'' +
+                ", link ='" + link + '\'' +
+                ", image =" + image +
+                ", language ='" + language + '\'' +
+                ", pubDate ='" + pubDate + '\'' +
+                ", lastBuildDate ='" + lastBuildDate + '\'' +
+                ", ttl ='" + ttl + '\'' +
+                ", copyright ='" + copyright + '\'' +
+                ", items =" + items +
+                '}';
+    }
 }
