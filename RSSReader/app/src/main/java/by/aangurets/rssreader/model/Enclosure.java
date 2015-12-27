@@ -7,7 +7,7 @@ import org.simpleframework.xml.Root;
 /**
  * Created by aangurets on 09/12/2015.
  */
-@Root(name = "enclosure")
+//@Root(name = "enclosure")
 public class Enclosure {
 
     @Attribute(name = "url")

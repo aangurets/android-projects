@@ -20,13 +20,13 @@ public class Channel {
     @Attribute(name = "type", required = false)
     private String type;
 
-    @Element(required = false)
+    @Element(name = "title")
     private String title;
 
     @Element(required = false)
     private String description;
 
-    @Element(required = false)
+    @Element(name = "link", required = false)
     private String link;
 
     @Element(required = false)

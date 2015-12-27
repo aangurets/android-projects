@@ -6,7 +6,7 @@ import org.simpleframework.xml.Root;
 /**
  * Created by aangurets on 06/12/2015.
  */
-@Root(name = "image", strict = false)
+//@Root(name = "image", strict = false)
 public class Image {
 
     @Element(name = "title")
