@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import by.aangurets.rssreader.adapter.ItemsAdapter;
 import by.aangurets.rssreader.loader.AbstractLoader;
+import by.aangurets.rssreader.model.Channel;
 import by.aangurets.rssreader.model.ItemsList;
 import by.aangurets.rssreader.networking.ItemsServiceHolder;
 
@@ -153,11 +154,16 @@ public class ReaderActivity extends AppCompatActivity
     public void onLoadFinished(Loader<ItemsList> loader, ItemsList data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
         Log.d(Constants.LOG_TAG, "Data: " + data);
-        if (!data.isEmpty()) {
-            mItemsListView.setAdapter(new ItemsAdapter(this, data));
-        } else {
-            Toast.makeText(this, "Empty", Toast.LENGTH_LONG).show();
+        try {
+            if (!data.isEmpty()) {
+                mItemsListView.setAdapter(new ItemsAdapter(this, data));
+            } else {
+                Toast.makeText(this, "Empty", Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            Log.e(Constants.LOG_TAG, "onLoadFinished: " + e);
         }
+
 //        updateList();
     }
 
@@ -175,7 +181,9 @@ public class ReaderActivity extends AppCompatActivity
         public ItemsList loadInBackground() {
             try {
                 Log.d(Constants.LOG_TAG, "loadInBackground");
-                return ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY).getItems();
+                Channel mChannel = ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY);
+                Log.d(Constants.LOG_TAG, "loadInBackground.Channel: " + mChannel);
+                return mChannel.getItems();
             } catch (Exception e) {
                 Log.e(Constants.LOG_TAG, "loadInBackground.exception: " + e);
                 return new ItemsList();
