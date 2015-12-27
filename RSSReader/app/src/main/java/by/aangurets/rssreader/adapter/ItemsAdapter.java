@@ -21,7 +21,7 @@ import by.aangurets.rssreader.storage.ItemsStorage;
  */
 public class ItemsAdapter extends ArrayAdapter<Item> {
 
-    public ItemsAdapter(Context context, ArrayList<Item> items) {
+    public ItemsAdapter(Context context, ItemsList items) {
         super(context, android.R.layout.simple_list_item_1, android.R.id.text1, items);
         LayoutInflater.from(context);
     }
