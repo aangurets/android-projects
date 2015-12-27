@@ -1,6 +1,6 @@
 package by.aangurets.rssreader.networking;
 
-import by.aangurets.rssreader.model.ItemsList;
+import by.aangurets.rssreader.model.Channel;
 import retrofit.http.GET;
 import retrofit.http.Path;
 
@@ -10,6 +10,6 @@ import retrofit.http.Path;
 public interface ItemsService {
 
     @GET("/{path}/feed")
-    ItemsList listItems(@Path("path") String path);
+    Channel listItems(@Path("path") String path);
 
 }
