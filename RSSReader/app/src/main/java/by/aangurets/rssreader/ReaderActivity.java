@@ -152,10 +152,9 @@ public class ReaderActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<ItemsList> loader, ItemsList data) {
         Log.d(Constants.LOG_TAG, "onLoadFinished");
-        Log.d(Constants.LOG_TAG, "Data: " + data.getmItems());
-        if (data.getmItems() != null) {
-
-            mItemsListView.setAdapter(new ItemsAdapter(this, data.getmItems()));
+        Log.d(Constants.LOG_TAG, "Data: " + data);
+        if (!data.isEmpty()) {
+            mItemsListView.setAdapter(new ItemsAdapter(this, data));
         } else {
             Toast.makeText(this, "Empty", Toast.LENGTH_LONG).show();
         }
@@ -176,7 +175,7 @@ public class ReaderActivity extends AppCompatActivity
         public ItemsList loadInBackground() {
             try {
                 Log.d(Constants.LOG_TAG, "loadInBackground");
-                return ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY).getmItems();
+                return ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY).getItems();
             } catch (Exception e) {
                 Log.e(Constants.LOG_TAG, "loadInBackground.exception: " + e);
                 return new ItemsList();
