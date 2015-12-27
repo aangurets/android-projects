@@ -176,7 +176,7 @@ public class ReaderActivity extends AppCompatActivity
         public ItemsList loadInBackground() {
             try {
                 Log.d(Constants.LOG_TAG, "loadInBackground");
-                return ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY);
+                return ItemsServiceHolder.getService().listItems(Constants.PATH_FAKTY).getmItems();
             } catch (Exception e) {
                 Log.e(Constants.LOG_TAG, "loadInBackground.exception: " + e);
                 return new ItemsList();
