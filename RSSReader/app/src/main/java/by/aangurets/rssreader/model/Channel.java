@@ -8,10 +8,13 @@ import org.simpleframework.xml.Root;
 /**
  * Created by aangurets on 06/12/2015.
  */
-@Root(name = "channel", strict = false)
+@Root(strict = false)
 public class Channel {
 
-    @Attribute(name = "link", required = false)
+    @Attribute(name = "version", required = false)
+    private String version;
+
+    @Attribute(required = false)
     private String atom;
 
     @Attribute(name = "rel", required = false)
@@ -20,13 +23,16 @@ public class Channel {
     @Attribute(name = "type", required = false)
     private String type;
 
+    @Element(name = "channel", required = false)
+    private Channel channel;
+
     @Element(name = "title", required = false)
     private String title;
 
     @Element(required = false)
     private String description;
 
-    @Element(name = "link", required = false)
+    @Element(required = false)
     private String link;
 
     @Element(required = false)
@@ -47,10 +53,18 @@ public class Channel {
     @Element(required = false)
     private String copyright;
 
-    @ElementList(required = false)
+    @ElementList(entry = "item", required = true)
     private ItemsList items;
 
     public Channel() {
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     public String getAtom() {
@@ -75,6 +89,14 @@ public class Channel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Channel channel) {
+        this.channel = channel;
     }
 
     public String getTitle() {
