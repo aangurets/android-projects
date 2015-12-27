@@ -20,7 +20,7 @@ public class Channel {
     @Attribute(name = "type", required = false)
     private String type;
 
-    @Element(name = "title")
+    @Element(name = "title", required = false)
     private String title;
 
     @Element(required = false)
@@ -47,8 +47,8 @@ public class Channel {
     @Element(required = false)
     private String copyright;
 
-    @ElementList(entry = "item", inline = true)
-    ItemsList mItems;
+    @ElementList(required = false)
+    private ItemsList items;
 
     public Channel() {
     }
@@ -149,11 +149,11 @@ public class Channel {
         this.copyright = copyright;
     }
 
-    public ItemsList getmItems() {
-        return mItems;
+    public ItemsList getItems() {
+        return items;
     }
 
-    public void setmItems(ItemsList mItems) {
-        this.mItems = mItems;
+    public void setItems(ItemsList items) {
+        this.items = items;
     }
 }
