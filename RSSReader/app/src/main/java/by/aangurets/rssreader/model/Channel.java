@@ -53,8 +53,8 @@ public class Channel {
     @Element(required = false)
     private String copyright;
 
-    @ElementList(entry = "item", required = true)
-    private ItemsList items;
+    @ElementList(entry = "item", required = false)
+    private ItemsList itemsList;
 
     public Channel() {
     }
@@ -172,11 +172,11 @@ public class Channel {
     }
 
     public ItemsList getItems() {
-        return items;
+        return itemsList;
     }
 
     public void setItems(ItemsList items) {
-        this.items = items;
+        this.itemsList = items;
     }
 
     @Override
@@ -194,7 +194,7 @@ public class Channel {
                 ", lastBuildDate ='" + lastBuildDate + '\'' +
                 ", ttl ='" + ttl + '\'' +
                 ", copyright ='" + copyright + '\'' +
-                ", items =" + items +
+                ", items =" + itemsList +
                 '}';
     }
 }
