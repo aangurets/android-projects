@@ -53,7 +53,7 @@ public class Channel {
     @Element(required = false)
     private String copyright;
 
-    @ElementList(entry = "item", required = false)
+    @ElementList(type = Item.class)
     private ItemsList itemsList;
 
     public Channel() {
