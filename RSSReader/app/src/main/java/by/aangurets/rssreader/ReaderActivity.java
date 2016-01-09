@@ -20,7 +20,6 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import by.aangurets.rssreader.adapter.ItemsAdapter;
 import by.aangurets.rssreader.loader.AbstractLoader;

@@ -1,7 +1,6 @@
 package by.aangurets.rssreader.networking;
 
 import by.aangurets.rssreader.Constants;
-import by.aangurets.rssreader.datahandling.XMLParsing;
 import retrofit.RestAdapter;
 import retrofit.converter.SimpleXMLConverter;
 
