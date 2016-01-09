@@ -155,11 +155,7 @@ public class ReaderActivity extends AppCompatActivity
         Log.d(Constants.LOG_TAG, "onLoadFinished");
         Log.d(Constants.LOG_TAG, "Data: " + data);
         try {
-            if (!data.isEmpty()) {
-                mItemsListView.setAdapter(new ItemsAdapter(this, data));
-            } else {
-                Toast.makeText(this, "Empty", Toast.LENGTH_LONG).show();
-            }
+            mItemsListView.setAdapter(new ItemsAdapter(this, data));
         } catch (Exception e) {
             Log.e(Constants.LOG_TAG, "onLoadFinished: " + e);
         }
