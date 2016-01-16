@@ -48,8 +48,6 @@ public class ReaderActivity extends AppCompatActivity
 
         getLoaderManager().initLoader(LOADER_ID, null, this);
 
-//        mAdapter = new ItemsAdapter(this, new ArrayList<Item>());
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
