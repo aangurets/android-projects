@@ -37,7 +37,7 @@ public class ReaderActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(Constants.LOG_TAG, "onCreate");
+        Log.d(Constants.LOG_TAG, "onCreate Activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reader);
 
@@ -83,7 +83,7 @@ public class ReaderActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        Log.d(Constants.LOG_TAG, "onBackPressed");
+        Log.d(Constants.LOG_TAG, "onBackPressed Activity");
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
