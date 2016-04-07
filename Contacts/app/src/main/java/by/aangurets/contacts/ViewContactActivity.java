@@ -19,14 +19,19 @@ public class ViewContactActivity extends Activity {
 
     @Bind(R.id.nameTextView)
     TextView mName;
+
     @Bind(R.id.surnameTextView)
     TextView mSurname;
+
     @Bind(R.id.phoneTextView)
     TextView mPhone;
+
     @Bind(R.id.emailAddressTextView)
     TextView mEmail;
+
     @Bind(R.id.dateTextView)
     TextView mDate;
+
     @Bind(R.id.occupationTextView)
     TextView mOccupation;
 
@@ -49,7 +54,7 @@ public class ViewContactActivity extends Activity {
         mSurname.setText(contact.getSurname());
         mPhone.setText(contact.getPhone());
         mEmail.setText(contact.getEmail());
-        mDate.setText(contact.getDateOfBirdth().toString());
+        mDate.setText(contact.getDateOfBirdth());
         mOccupation.setText(contact.getOccupation());
     }
 

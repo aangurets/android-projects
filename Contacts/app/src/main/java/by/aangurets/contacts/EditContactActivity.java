@@ -20,14 +20,19 @@ public class EditContactActivity extends Activity {
 
     @Bind(R.id.nameEditText)
     EditText mName;
+
     @Bind(R.id.surnameEditText)
     EditText mSurname;
+
     @Bind(R.id.phoneEditText)
     EditText mPhone;
+
     @Bind(R.id.emailAddressEditText)
     EditText mEmail;
+
     @Bind(R.id.dateEditText)
     EditText mDate;
+
     @Bind(R.id.occupationEditText)
     EditText mOccupation;
 
@@ -49,7 +54,7 @@ public class EditContactActivity extends Activity {
         mSurname.setText(contact.getSurname());
         mPhone.setText(contact.getPhone());
         mEmail.setText(contact.getEmail());
-        mDate.setText(contact.getDateOfBirdth().toString());
+        mDate.setText(contact.getDateOfBirdth());
         mOccupation.setText(contact.getOccupation());
     }
 

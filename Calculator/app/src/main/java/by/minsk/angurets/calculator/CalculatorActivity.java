@@ -21,12 +21,16 @@ public class CalculatorActivity extends AppCompatActivity {
 
     @Bind(R.id.operand1)
     EditText mOperand1EditText;
+
     @Bind(R.id.operand2)
     EditText mOperand2EditText;
+
     @Bind(R.id.result)
     TextView mResult;
+
     @Bind(R.id.radio_group)
     RadioGroup mRadioGroup;
+
     @Bind(R.id.history_button)
     Button mHistoryButton;
 

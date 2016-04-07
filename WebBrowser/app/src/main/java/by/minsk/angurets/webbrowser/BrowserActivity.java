@@ -20,14 +20,19 @@ public class BrowserActivity extends AppCompatActivity {
 
     @Bind(R.id.url)
     EditText mUrl;
+
     @Bind(R.id.open_button)
     ImageButton mOpenButton;
+
     @Bind(R.id.back_button)
     ImageButton mBackButton;
+
     @Bind(R.id.forward_button)
     ImageButton mForwardButton;
+
     @Bind(R.id.history_button)
     ImageButton mHistoryButton;
+
     @Bind(R.id.webView)
     WebView mWebView;
 
